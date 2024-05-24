@@ -20,4 +20,4 @@ jobs:
 
       # Run C tests
       - name: Run C tests
-        run: ./main_test
+        run: ./conversion_v1
