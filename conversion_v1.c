@@ -8,7 +8,7 @@ float in_bounds(float value){
     } if (value < 0 ){
         return 0;
     }
-    return value
+    return value;
 }
 
 void rgb_to_ycc(float R, float G, float B){
@@ -16,14 +16,14 @@ void rgb_to_ycc(float R, float G, float B){
     float Cb = 128 - (0.168736 * R) - (0.331264 * G) + (0.5 * B);
     float Cr = 128 + (0.5 * R) - (0.418688 * G) - (0.081312 * B);
 
-    printf("YCC %.5f %.5f %.5f", in_bounds(Y), in_bounds(Cb), in_bounds(Cr));
+    printf("YCC %.0f %.0f %.0f", in_bounds(Y), in_bounds(Cb), in_bounds(Cr));
 }
 
 void ycc_to_rgb(float Y, float Cr, float Cb){
     float R = Y + (1.402) * (Cr-128);
     float G = Y - 0.344136 * (Cb - 128)-0.714136 * (Cr-128);
     float B = Y + 1.772 * (Cb - 128);
-    printf("RGB %.5f %.5f %.5f", in_bounds(R), in_bounds(G), in_bounds(B));
+    printf("RGB %.0f %.0f %.0f", in_bounds(R), in_bounds(G), in_bounds(B));
 }
 
 int main(int argc, char *argv[])
