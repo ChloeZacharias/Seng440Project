@@ -1,0 +1,26 @@
+[
+  {
+    "input": "RGB 250 0 0",
+    "output": "YCC 76 85 255"
+  },
+  {
+    "input": "RGB 0 255 0",
+    "output": "YCC 150 44 21"
+  },
+  {
+    "input": "RGB 0 0 255",
+    "output": "YCC 29 255 107"
+  },
+  {
+    "input": "RGB 255 255 255",
+    "output": "YCC 255 128 128"
+  },
+  {
+    "input": "RGB 0 0 0",
+    "output": "YCC 0 128 128"
+  },
+  {
+    "input": "RGB 128 128 128",
+    "output": "YCC 128 128 128"
+  }
+]
