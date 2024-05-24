@@ -20,4 +20,4 @@ jobs:
 
       # Run C tests
       - name: Run C tests
-        run: ./conversion_v1
+        run: python ./tests/test.py
