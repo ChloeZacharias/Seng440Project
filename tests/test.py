@@ -1,6 +1,7 @@
 import subprocess
 import time
 import json
+import sys
 
 
 def run_and_time_binary(binary_path, input_values):
@@ -41,7 +42,7 @@ def run_and_time_binary(binary_path, input_values):
 
 
 if __name__ == "__main__":
-    binary_path = "./conversion_v1"
+    binary_path = sys.argv[1]
 
     # Read test values from JSON file
     with open("./tests/testCases.json") as json_file:
