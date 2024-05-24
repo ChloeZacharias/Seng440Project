@@ -16,7 +16,7 @@ jobs:
       # Compile C program
       - name: Compile Tests
         run: |
-          gcc main.c -o main
+          gcc conversion_v1.c -o conversion_v1
 
     # Run C tests
     - name: Run C tests
