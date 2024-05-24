@@ -1,0 +1,19 @@
+name: Build and Test
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Compile C program
+    - name: Compile C program
+      run: gcc main.c -o main
+
+    # Run C tests
+    - name: Run C tests
+      run: ./main_test
