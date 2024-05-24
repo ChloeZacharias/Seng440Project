@@ -10,9 +10,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Compile C program
-    - name: Compile C program
-      run: gcc main.c -o main.exe
+      - name: Install ARM GCC toolchain
+        run: sudo apt-get install -y gcc-arm-linux-gnueabihf cmake libcmocka-dev
+
+      # Compile C program
+      - name: Compile Tests
+        run: |
+          gcc main.c -o main
 
     # Run C tests
     - name: Run C tests
