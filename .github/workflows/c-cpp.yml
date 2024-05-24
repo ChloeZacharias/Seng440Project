@@ -20,7 +20,7 @@ jobs:
 
       # Run C tests
       - name: Run v1 tests
-        run: python ./tests/test.py conversion_v1
+        run: python ./tests/test.py ./conversion_v1
 
       # Compile C program
       - name: Compile Tests
@@ -29,4 +29,4 @@ jobs:
 
       # Run C tests
       - name: Run v2 tests
-        run: python ./tests/test.py conversion_v2
+        run: python ./tests/test.py ./conversion_v2
