@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-inline float in_bounds(float value)
+static inline float in_bounds(float value)
 {
     if (value > 255)
     {
@@ -15,7 +15,7 @@ inline float in_bounds(float value)
     return value;
 }
 
-inline void rgb_to_ycc(float R, float G, float B)
+static inline void rgb_to_ycc(float R, float G, float B)
 {
     float Y = (0.299 * R) + (0.587 * G) + (0.114 * B);
     float Cb = 128 - (0.168736 * R) - (0.331264 * G) + (0.5 * B);
@@ -24,7 +24,7 @@ inline void rgb_to_ycc(float R, float G, float B)
     printf("YCC %.0f %.0f %.0f", in_bounds(Y), in_bounds(Cb), in_bounds(Cr));
 }
 
-inline void ycc_to_rgb(float Y, float Cb, float Cr)
+static inline void ycc_to_rgb(float Y, float Cb, float Cr)
 {
     float R = Y + ((1.402) * (Cr - 128));
     float G = Y - (0.344136 * (Cb - 128)) - (0.714136 * (Cr - 128));
