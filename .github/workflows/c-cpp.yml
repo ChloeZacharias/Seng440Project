@@ -12,7 +12,7 @@ jobs:
 
     # Compile C program
     - name: Compile C program
-      run: gcc main.c -o main
+      run: gcc main.c -o main.exe
 
     # Run C tests
     - name: Run C tests
