@@ -45,9 +45,9 @@ int main(int argc, char *argv[])
     else
     {
         float Y = atof(argv[2]);
-        float Cr = atof(argv[3]);
-        float Cb = atof(argv[4]);
-        ycc_to_rgb(Y, Cr, Cb);
+        float Cb = atof(argv[3]);
+        float Cr = atof(argv[4]);
+        ycc_to_rgb(Y, Cb, Cr);
     }
 
     return 0;

@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
     else
     {
         float Y = atof(argv[2]);
-        float Cr = atof(argv[3]);
-        float Cb = atof(argv[4]);
+        float Cb = atof(argv[3]);
+        float Cr = atof(argv[4]);
         printf("RGB %.0f %.0f %.0f", R_MACRO(Y, Cb, Cr), G_MACRO(Y, Cb, Cr), B_MACRO(Y, Cb, Cr));
     }
 
