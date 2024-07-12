@@ -4,7 +4,9 @@
 
 //#include <stdio.h>
 #include <stdint.h>
+#include <stdio.h>
 #include "CSC_global.h"
+#include <arm_neon.h>
 
 // private data
 
@@ -193,6 +195,142 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col) {
                                                (uint8_t)Cr_pixel_11);
 } // END of CSC_RGB_to_YCC_brute_force_int()
 
+
+static void CSC_RGB_to_YCC_neon( int row, int col) {
+//
+    int R_pixel_00, R_pixel_01, R_pixel_10, R_pixel_11;
+    int G_pixel_00, G_pixel_01, G_pixel_10, G_pixel_11;
+    int B_pixel_00, B_pixel_01, B_pixel_10, B_pixel_11;
+
+    int  Y_pixel_00,  Y_pixel_01,  Y_pixel_10,  Y_pixel_11;
+    int Cb_pixel_00, Cb_pixel_01, Cb_pixel_10, Cb_pixel_11;
+    int Cr_pixel_00, Cr_pixel_01, Cr_pixel_10, Cr_pixel_11;
+
+    R_pixel_00 = (int)R[row+0][col+0];
+    R_pixel_01 = (int)R[row+0][col+1];
+    R_pixel_10 = (int)R[row+1][col+0];
+    R_pixel_11 = (int)R[row+1][col+1];
+
+    G_pixel_00 = (int)G[row+0][col+0];
+    G_pixel_01 = (int)G[row+0][col+1];
+    G_pixel_10 = (int)G[row+1][col+0];
+    G_pixel_11 = (int)G[row+1][col+1];
+
+    B_pixel_00 = (int)B[row+0][col+0];
+    B_pixel_01 = (int)B[row+0][col+1];
+    B_pixel_10 = (int)B[row+1][col+0];
+    B_pixel_11 = (int)B[row+1][col+1];
+
+    // Put all the pixel values in a neon vector to make repeat calculations faster...?
+    uint32x4_t RR = vld1q_u32 (R_pixel_00, R_pixel_01, R_pixel_10, R_pixel_11);
+    uint32x4_t GG = vld1q_u32 (G_pixel_00, G_pixel_01, G_pixel_10, G_pixel_11);
+    uint32x4_t BB = vld1q_u32 (B_pixel_00, B_pixel_01, B_pixel_10, B_pixel_11);
+
+    uint32x4_t scalar_vector_C1 = vdupq_n_u32(C11);
+    uint32x4_t RR_scaled = vmulq_u32(RR, scalar_vector_C1);
+
+    uint32x4_t scalar_vector_C2 = vdupq_n_u32(C12);
+    uint32x4_t GG_scaled = vmulq_u32(GG, scalar_vector_C2);
+
+    uint32x4_t scalar_vector_C3 = vdupq_n_u32(C13);
+    uint32x4_t BB_scaled = vmulq_u32(BB, scalar_vector_C3);
+
+    uint32x4_t YY = vaddq_u32(RR_scaled, GG_scaled);
+
+    YY = vaddq_u32(YY, BB_scaled);
+    YY = vaddq_u32(YY, (16 << (K)));
+    YY = vaddq_u32(YY, (1 << (K-1)));
+
+    YY = vshrq_n_u32(YY, K);
+    uint32_t YY_result[4];
+    vst1q_u32(YY_result, YY);
+
+    Y[row+0][col+0] = (uint8_t)YY_result[0];
+    Y[row+0][col+1] = (uint8_t)YY_result[1];
+    Y[row+1][col+0] = (uint8_t)YY_result[2];
+    Y[row+1][col+1] = (uint8_t)YY_result[3];
+
+    // GETTING THE Cb VALUES
+    scalar_vector_C1 = vdupq_n_u32(C21);
+    RR_scaled = vmulq_u32(RR, scalar_vector_C1);
+
+    scalar_vector_C2 = vdupq_n_u32(C22);
+    GG_scaled = vmulq_u32(GG, scalar_vector_C2);
+
+    scalar_vector_C3 = vdupq_n_u32(C23);
+    BB_scaled = vmulq_u32(BB, scalar_vector_C3);
+
+    uint32x4_t CbCb = vsubq_u32((128 << (K)), RR_scaled);
+
+    CbCb = vsubq_u32(CbCb, GG_scaled);
+    CbCb = vaddq_u32(CbCb, BB_scaled);
+    CbCb = vaddq_u32(CbCb, (1 << (K-1))); // rounding
+    CbCb = vshrq_n_u32(CbCb, K); //shifting
+
+    uint32_t CbCb_result[4];
+    vst1q_u32(CbCb_result, CbCb);
+
+
+    scalar_vector_C1 = vdupq_n_u32(C31);
+    RR_scaled = vmulq_u32(RR, scalar_vector_C1);
+
+    scalar_vector_C2 = vdupq_n_u32(C32);
+    GG_scaled = vmulq_u32(GG, scalar_vector_C2);
+
+    scalar_vector_C3 = vdupq_n_u32(C33);
+    BB_scaled = vmulq_u32(BB, scalar_vector_C3);
+
+    uint32x4_t CrCr = vaddq_u32((128 << (K)), RR_scaled);
+
+    CrCr = vsubq_u32(CrCr, GG_scaled);
+
+    CrCr = vsubq_u32(CrCr, BB_scaled);
+
+    CrCr = vaddq_u32(CrCr, (1 << (K - 1)));
+
+    CrCr = vshrq_n_u32(CrCr, K);
+
+    uint32_t CrCr_result[4];
+    vst1q_u32(CrCr_result, YY);
+
+
+    Cr_pixel_00 = (128 << (K)) + C31 * R_pixel_00
+                  - C32 * G_pixel_00
+                  - C33 * B_pixel_00;
+    Cr_pixel_00 += (1 << (K-1)); // rounding
+    Cr_pixel_00 = Cr_pixel_00 >> K;
+
+    Cr_pixel_01 = (128 << (K)) + C31 * R_pixel_01
+                  - C32 * G_pixel_01
+                  - C33 * B_pixel_01;
+    Cr_pixel_01 += (1 << (K-1)); // rounding
+    Cr_pixel_01 = Cr_pixel_01 >> K;
+
+    Cr_pixel_10 = (128 << (K)) + C31 * R_pixel_10
+                  - C32 * G_pixel_10
+                  - C33 * B_pixel_10;
+    Cr_pixel_10 += (1 << (K-1)); // rounding
+    Cr_pixel_10 = Cr_pixel_10 >> K;
+
+    Cr_pixel_11 = (128 << (K)) + C31 * R_pixel_11
+                  - C32 * G_pixel_11
+                  - C33 * B_pixel_11;
+    Cr_pixel_11 += (1 << (K-1)); // rounding
+    Cr_pixel_11 = Cr_pixel_11 >> K;
+
+
+    Cr[row>>1][col>>1] = chrominance_downsample( (uint8_t)CrCr_result[0],
+                                                 (uint8_t)CrCr_result[1],
+                                                 (uint8_t)CrCr_result[2],
+                                                 (uint8_t)CrCr_result[3]);
+
+    Cb[row>>1][col>>1] = chrominance_downsample( (uint8_t)CbCb_result[0],
+                                                 (uint8_t)CbCb_result[1],
+                                                 (uint8_t)CbCb_result[2],
+                                                 (uint8_t)CbCb_result[3]);
+}
+
+
 // =======
 static uint8_t chrominance_downsample(
     uint8_t C_pixel_00, uint8_t C_pixel_01,
@@ -232,6 +370,9 @@ void CSC_RGB_to_YCC( void) {
         case 2:
           CSC_RGB_to_YCC_brute_force_int( row, col);
           break;
+        case 3:
+            CSC_RGB_to_YCC_neon(row, col);
+            break;
         default:
           break;
       }
