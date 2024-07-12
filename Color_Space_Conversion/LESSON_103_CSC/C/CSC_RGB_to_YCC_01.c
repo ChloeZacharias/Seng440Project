@@ -221,10 +221,14 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     B_pixel_10 = (int)B[row+1][col+0];
     B_pixel_11 = (int)B[row+1][col+1];
 
+    uint32_t R_array[4] = {R_pixel_00, R_pixel_01, R_pixel_10, R_pixel_11};
+    uint32_t G_array[4] = {G_pixel_00, G_pixel_01, G_pixel_10, G_pixel_11};
+    uint32_t B_array[4] = {B_pixel_00, B_pixel_01, B_pixel_10, B_pixel_11};
+
     // Put all the pixel values in a neon vector to make repeat calculations faster...?
-    uint32x4_t RR = vld1q_u32 (R_pixel_00, R_pixel_01, R_pixel_10, R_pixel_11);
-    uint32x4_t GG = vld1q_u32 (G_pixel_00, G_pixel_01, G_pixel_10, G_pixel_11);
-    uint32x4_t BB = vld1q_u32 (B_pixel_00, B_pixel_01, B_pixel_10, B_pixel_11);
+    uint32x4_t RR = vld1q_u32 (R);
+    uint32x4_t GG = vld1q_u32 (G);
+    uint32x4_t BB = vld1q_u32 (B);
 
     uint32x4_t scalar_vector_C1 = vdupq_n_u32(C11);
     uint32x4_t RR_scaled = vmulq_u32(RR, scalar_vector_C1);
