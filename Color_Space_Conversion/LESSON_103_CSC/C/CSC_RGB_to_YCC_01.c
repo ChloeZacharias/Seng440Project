@@ -260,7 +260,9 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     scalar_vector_C3 = vdupq_n_u32(C23);
     BB_scaled = vmulq_u32(BB, scalar_vector_C3);
 
-    uint32x4_t CbCb = vsubq_u32(128 << (K), RR_scaled);
+    uint32x4_t add_valueC = vdupq_n_u32((16 << (K)));
+
+    uint32x4_t CbCb = vsubq_u32(add_valueC, RR_scaled);
 
     CbCb = vsubq_u32(CbCb, GG_scaled);
     CbCb = vaddq_u32(CbCb, BB_scaled);
@@ -280,14 +282,17 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     scalar_vector_C3 = vdupq_n_u32(C33);
     BB_scaled = vmulq_u32(BB, scalar_vector_C3);
 
-    uint32x4_t CrCr = vaddq_u32((uint32_t)(128 << (K)), RR_scaled);
+
+    uint32x4_t CrCr = vaddq_u32(add_valueC, RR_scaled);
 
     CrCr = vsubq_u32(CrCr, GG_scaled);
 
     CrCr = vsubq_u32(CrCr, BB_scaled);
 
-    CrCr = vaddq_u32(CrCr, (uint32_t)(1 << (K-1))); // rounding
-    CrCr = vshrq_n_u32(CrCr, K);
+
+
+    CrCr = vaddq_u32(CrCr, scale); // rounding
+    CrCr = vshrq_n_u32(CrCr, K); // Shifting
 
     uint32_t CrCr_result[4];
     vst1q_u32(CrCr_result, YY);
