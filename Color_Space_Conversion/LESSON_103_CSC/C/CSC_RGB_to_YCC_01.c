@@ -286,37 +286,13 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
 
     CrCr = vsubq_u32(CrCr, BB_scaled);
 
-    CrCr = vaddq_u32(CrCr, (1 << (K - 1)));
+    CrCr = vaddq_u32(CrCr, 1 << (K - 1));
 
     CrCr = vshrq_n_u32(CrCr, K);
 
     uint32_t CrCr_result[4];
     vst1q_u32(CrCr_result, YY);
 
-
-    Cr_pixel_00 = (128 << (K)) + C31 * R_pixel_00
-                  - C32 * G_pixel_00
-                  - C33 * B_pixel_00;
-    Cr_pixel_00 += (1 << (K-1)); // rounding
-    Cr_pixel_00 = Cr_pixel_00 >> K;
-
-    Cr_pixel_01 = (128 << (K)) + C31 * R_pixel_01
-                  - C32 * G_pixel_01
-                  - C33 * B_pixel_01;
-    Cr_pixel_01 += (1 << (K-1)); // rounding
-    Cr_pixel_01 = Cr_pixel_01 >> K;
-
-    Cr_pixel_10 = (128 << (K)) + C31 * R_pixel_10
-                  - C32 * G_pixel_10
-                  - C33 * B_pixel_10;
-    Cr_pixel_10 += (1 << (K-1)); // rounding
-    Cr_pixel_10 = Cr_pixel_10 >> K;
-
-    Cr_pixel_11 = (128 << (K)) + C31 * R_pixel_11
-                  - C32 * G_pixel_11
-                  - C33 * B_pixel_11;
-    Cr_pixel_11 += (1 << (K-1)); // rounding
-    Cr_pixel_11 = Cr_pixel_11 >> K;
 
 
     Cr[row>>1][col>>1] = chrominance_downsample( (uint8_t)CrCr_result[0],
