@@ -286,8 +286,7 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
 
     CrCr = vsubq_u32(CrCr, BB_scaled);
 
-    CrCr = vaddq_u32(CrCr, 1 << (K - 1));
-
+    CrCr = vaddq_u32(CrCr, 1 << (K-1)); // rounding
     CrCr = vshrq_n_u32(CrCr, K);
 
     uint32_t CrCr_result[4];
