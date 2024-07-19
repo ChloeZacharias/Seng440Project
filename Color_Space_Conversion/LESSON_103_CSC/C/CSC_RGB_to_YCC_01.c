@@ -345,7 +345,7 @@ void CSC_RGB_to_YCC( void) {
 //
   for( row=0; row<IMAGE_ROW_SIZE; row+=2) {
     for( col=0; col<IMAGE_COL_SIZE; col+=2) { 
-      //printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
+      printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
       switch (RGB_to_YCC_ROUTINE) {
         case 0:
           break;
