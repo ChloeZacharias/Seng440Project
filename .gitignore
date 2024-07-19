@@ -3,3 +3,7 @@
 
 cmake-build-debug
 .idea
+
+cmake-build-arm
+
+Color_Space_Conversion/LESSON_103_CSC/C/CSC_main
