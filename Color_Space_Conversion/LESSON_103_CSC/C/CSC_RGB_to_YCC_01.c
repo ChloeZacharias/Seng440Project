@@ -230,13 +230,13 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     uint32x4_t GG = vld1q_u32 (G_array);
     uint32x4_t BB = vld1q_u32 (B_array);
 
-    uint32x4_t scalar_vector_C1 = vdupq_n_u32((uint32_t)C11);
+    uint32x4_t scalar_vector_C1 = vdupq_n_u32(C11);
     uint32x4_t RR_scaled = vmulq_u32(RR, scalar_vector_C1);
 
-    uint32x4_t scalar_vector_C2 = vdupq_n_u32((uint32_t)C12);
+    uint32x4_t scalar_vector_C2 = vdupq_n_u32(C12);
     uint32x4_t GG_scaled = vmulq_u32(GG, scalar_vector_C2);
 
-    uint32x4_t scalar_vector_C3 = vdupq_n_u32((uint32_t)C13);
+    uint32x4_t scalar_vector_C3 = vdupq_n_u32(C13);
     uint32x4_t BB_scaled = vmulq_u32(BB, scalar_vector_C3);
 
     uint32x4_t YY = vaddq_u32(RR_scaled, GG_scaled);
@@ -258,13 +258,13 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     Y[row+1][col+1] = (uint8_t)YY_result[3];
 
     // GETTING THE Cb VALUES
-    scalar_vector_C1 = vdupq_n_u32((uint32_t)C21);
+    scalar_vector_C1 = vdupq_n_u32(C21);
     RR_scaled = vmulq_u32(RR, scalar_vector_C1);
 
-    scalar_vector_C2 = vdupq_n_u32((uint32_t)C22);
+    scalar_vector_C2 = vdupq_n_u32(C22);
     GG_scaled = vmulq_u32(GG, scalar_vector_C2);
 
-    scalar_vector_C3 = vdupq_n_u32((uint32_t)C23);
+    scalar_vector_C3 = vdupq_n_u32(C23);
     BB_scaled = vmulq_u32(BB, scalar_vector_C3);
 
     uint32x4_t add_valueC = vdupq_n_u32((16 << (K)));
@@ -280,13 +280,13 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     vst1q_u32(CbCb_result, CbCb);
 
 
-    scalar_vector_C1 = vdupq_n_u32((uint32_t)C31);
+    scalar_vector_C1 = vdupq_n_u32(C31);
     RR_scaled = vmulq_u32(RR, scalar_vector_C1);
 
-    scalar_vector_C2 = vdupq_n_u32((uint32_t)C32);
+    scalar_vector_C2 = vdupq_n_u32(C32);
     GG_scaled = vmulq_u32(GG, scalar_vector_C2);
 
-    scalar_vector_C3 = vdupq_n_u32((uint32_t)C33);
+    scalar_vector_C3 = vdupq_n_u32(C33);
     BB_scaled = vmulq_u32(BB, scalar_vector_C3);
 
 
