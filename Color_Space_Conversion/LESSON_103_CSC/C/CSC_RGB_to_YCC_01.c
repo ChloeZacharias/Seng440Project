@@ -226,9 +226,9 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     uint32_t B_array[4] = {B_pixel_00, B_pixel_01, B_pixel_10, B_pixel_11};
 
     // Put all the pixel values in a neon vector to make repeat calculations faster...?
-    uint32x4_t RR = vld1q_u32 (R);
-    uint32x4_t GG = vld1q_u32 (G);
-    uint32x4_t BB = vld1q_u32 (B);
+    uint32x4_t RR = vld1q_u32 (R_array);
+    uint32x4_t GG = vld1q_u32 (G_array);
+    uint32x4_t BB = vld1q_u32 (B_array);
 
     uint32x4_t scalar_vector_C1 = vdupq_n_u32((uint32_t)C11);
     uint32x4_t RR_scaled = vmulq_u32(RR, scalar_vector_C1);
@@ -297,13 +297,12 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     CrCr = vsubq_u32(CrCr, BB_scaled);
 
 
+
     CrCr = vaddq_u32(CrCr, scale); // rounding
     CrCr = vshrq_n_u32(CrCr, K); // Shifting
 
     uint32_t CrCr_result[4];
     vst1q_u32(CrCr_result, YY);
-
-
 
     Cr[row>>1][col>>1] = chrominance_downsample( (uint8_t)CrCr_result[0],
                                                  (uint8_t)CrCr_result[1],
