@@ -291,13 +291,13 @@ static void CSC_YCC_to_RGB_neon( int row, int col) {
     uint32x4_t scalar_vector_D3 = vdupq_n_u32(D3);
     uint32x4_t scalar_vector_D4 = vdupq_n_u32(D4);
 
-    CrCr_scaled = vqrdmulhq_u32(CrCr, scalar_vector_D3);
+    CrCr_scaled = vmulq_u32(CrCr, scalar_vector_D3);
     uint32x4_t CbCb_scaled = vmulq_u32(CbCb, scalar_vector_D4);
 
-    uint32x4_t GG = vqsubq_u32(YY_scaled, CrCr_scaled);
-    GG = vqsubq_u32(GG, CbCb_scaled);
+    uint32x4_t GG = vsubq_u32(YY_scaled, CrCr_scaled);
+    GG = vsubq_u32(GG, CbCb_scaled);
 
-    GG = vqaddq_u32(GG, rounding); // Rounding
+    GG = vaddq_u32(GG, rounding); // Rounding
     GG = vshrq_n_u32(GG, K); // Shifting
 
     uint32_t GG_result[4];
@@ -316,7 +316,7 @@ static void CSC_YCC_to_RGB_neon( int row, int col) {
     uint32x4_t scalar_vector_D5 = vdupq_n_u32(D5);
     CbCb_scaled = vmulq_u32(CbCb, scalar_vector_D5);
 
-    uint32x4_t BB = vqaddq_u32(YY_scaled, CbCb_scaled);
+    uint32x4_t BB = vaddq_u32(YY_scaled, CbCb_scaled);
 
     BB = vaddq_u32(BB, rounding); // rounding
 
@@ -460,7 +460,7 @@ void CSC_YCC_to_RGB( void) {
 //
 
   for( row=IMAGE_ROW_SIZE-1; row&0xFF; row-=2) {
-    for( col=IMAGE_COL_SIZE-1; col-1&0xFF; col-=2) {
+    for( col=IMAGE_COL_SIZE-1; col&0xFF; col-=2) {
       printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
       switch (YCC_to_RGB_ROUTINE) {
         case 0:
