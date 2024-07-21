@@ -205,34 +205,11 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col) {
 
 static void CSC_RGB_to_YCC_neon( int row, int col) {
 //
-    int R_pixel_00, R_pixel_01, R_pixel_10, R_pixel_11;
-    int G_pixel_00, G_pixel_01, G_pixel_10, G_pixel_11;
-    int B_pixel_00, B_pixel_01, B_pixel_10, B_pixel_11;
+    uint32_t R_array[4] = {(uint8_t)R[row][col], (uint8_t)R[row][col+1], (uint8_t)R[row+1][col], (uint8_t)R[row+1][col+1]};
+    uint32_t G_array[4] = {(uint8_t)G[row][col], (uint8_t)G[row][col+1], (uint8_t)G[row+1][col], (uint8_t)G[row+1][col+1]};
+    uint32_t B_array[4] = {(uint8_t)B[row][col], (uint8_t)B[row][col+1], (uint8_t)B[row+1][col], (uint8_t)B[row+1][col+1]};
 
-    int  Y_pixel_00,  Y_pixel_01,  Y_pixel_10,  Y_pixel_11;
-    int Cb_pixel_00, Cb_pixel_01, Cb_pixel_10, Cb_pixel_11;
-    int Cr_pixel_00, Cr_pixel_01, Cr_pixel_10, Cr_pixel_11;
-
-    R_pixel_00 = (int)R[row+0][col+0];
-    R_pixel_01 = (int)R[row+0][col+1];
-    R_pixel_10 = (int)R[row+1][col+0];
-    R_pixel_11 = (int)R[row+1][col+1];
-
-    G_pixel_00 = (int)G[row+0][col+0];
-    G_pixel_01 = (int)G[row+0][col+1];
-    G_pixel_10 = (int)G[row+1][col+0];
-    G_pixel_11 = (int)G[row+1][col+1];
-
-    B_pixel_00 = (int)B[row+0][col+0];
-    B_pixel_01 = (int)B[row+0][col+1];
-    B_pixel_10 = (int)B[row+1][col+0];
-    B_pixel_11 = (int)B[row+1][col+1];
-
-    uint32_t R_array[4] = {R_pixel_00, R_pixel_01, R_pixel_10, R_pixel_11};
-    uint32_t G_array[4] = {G_pixel_00, G_pixel_01, G_pixel_10, G_pixel_11};
-    uint32_t B_array[4] = {B_pixel_00, B_pixel_01, B_pixel_10, B_pixel_11};
-
-    // Put all the pixel values in a neon vector to make repeat calculations faster...?
+    // Put all the pixel values in a neon vector to make repeat calculations faster
     uint32x4_t RR = vld1q_u32 (R_array);
     uint32x4_t GG = vld1q_u32 (G_array);
     uint32x4_t BB = vld1q_u32 (B_array);
@@ -261,9 +238,9 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
 
     //printf("NEON\nYY %u, %u\n", YY_result[0], (uint8_t)YY_result[0]);
 
-    Y[row+0][col+0] = (uint8_t)YY_result[0];
-    Y[row+0][col+1] = (uint8_t)YY_result[1];
-    Y[row+1][col+0] = (uint8_t)YY_result[2];
+    Y[row][col] = (uint8_t)YY_result[0];
+    Y[row][col+1] = (uint8_t)YY_result[1];
+    Y[row+1][col] = (uint8_t)YY_result[2];
     Y[row+1][col+1] = (uint8_t)YY_result[3];
 
     // GETTING THE Cb VALUES

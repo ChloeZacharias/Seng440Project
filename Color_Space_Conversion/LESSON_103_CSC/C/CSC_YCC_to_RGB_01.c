@@ -181,6 +181,8 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
   R[row+1][col+0] = (uint8_t)R_pixel_10;
   R[row+1][col+1] = (uint8_t)R_pixel_11;
 
+  printf("RR %u, %u\n", R_pixel_00, (uint8_t)R_pixel_00);
+
   G_pixel_00 = D1 * Y_pixel_00 - D3 * Cr_pixel_00
                                - D4 * Cb_pixel_00;
   G_pixel_00 += (1 << (K-1)); // rounding
@@ -229,6 +231,8 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
   B[row+0][col+1] = (uint8_t)B_pixel_01;
   B[row+1][col+0] = (uint8_t)B_pixel_10;
   B[row+1][col+1] = (uint8_t)B_pixel_11;
+
+    printf("BB %u, %u\n", B_pixel_00, (uint8_t)B_pixel_00);
 
 } // END of CSC_YCC_to_RGB_brute_force_int()
 
@@ -287,7 +291,7 @@ static void CSC_YCC_to_RGB_neon( int row, int col) {
     uint32x4_t scalar_vector_D3 = vdupq_n_u32(D3);
     uint32x4_t scalar_vector_D4 = vdupq_n_u32(D4);
 
-    CrCr_scaled = vqrdmulq_u32(CrCr, scalar_vector_D3);
+    CrCr_scaled = vqrdmulhq_u32(CrCr, scalar_vector_D3);
     uint32x4_t CbCb_scaled = vmulq_u32(CbCb, scalar_vector_D4);
 
     uint32x4_t GG = vqsubq_u32(YY_scaled, CrCr_scaled);
