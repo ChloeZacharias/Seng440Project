@@ -2,8 +2,9 @@
 // Color Space Conversion (CSC) in fixed-point arithmetic
 // YCC to RGB conversion
 
-//#include <stdio.h>
+#include <stdio.h>
 #include <stdint.h>
+#include <arm_neon.h>
 #include "CSC_global.h"
 
 // private data
@@ -200,6 +201,9 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
   G_pixel_11 += (1 << (K-1)); // rounding
   G_pixel_11 = G_pixel_11 >> K;
 
+  printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
+
+
   G[row+0][col+0] = (uint8_t)G_pixel_00;
   G[row+0][col+1] = (uint8_t)G_pixel_01;
   G[row+1][col+0] = (uint8_t)G_pixel_10;
@@ -227,6 +231,104 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
   B[row+1][col+1] = (uint8_t)B_pixel_11;
 
 } // END of CSC_YCC_to_RGB_brute_force_int()
+
+static void CSC_YCC_to_RGB_neon( int row, int col) {
+
+    // Upsample Cb and Cr into Cb_temp and Cr_temp
+    chrominance_array_upsample();
+
+    uint32_t Y_array[4] = {(uint8_t)Y[row][col], (uint8_t)Y[row][col+1], Y[row+1][col], (uint8_t)Y[row+1][col+1]};
+
+    uint32_t Cb_array[4] = {(uint8_t)Cb_temp[row][col], (uint8_t)Cb_temp[row][col+1], (uint8_t)Cb_temp[row+1][col], (uint8_t)Cb_temp[row+1][col+1]};
+
+    uint32_t Cr_array[4] = {(uint8_t)Cr_temp[row][col], (uint8_t)Cr_temp[row][col+1], (uint8_t)Cr_temp[row+1][col], (uint8_t)Cr_temp[row+1][col+1]};
+
+    // Put all the pixel values in a neon vector to make repeat calculations faster...?
+    uint32x4_t YY = vld1q_u32 (Y_array);
+
+    // 1 << 4 is cheaper than 16
+    uint32x4_t scaled_vector_16 = vdupq_n_u32(1 << 4);
+    YY = vsubq_u32(YY, scaled_vector_16);
+
+    // 1 << 6 is cheaper than 128
+    uint32x4_t scaled_vector_128 = vdupq_n_u32(1 << 7);
+    uint32x4_t CbCb = vld1q_u32 (Cb_array);
+    CbCb = vsubq_u32(CbCb, scaled_vector_128);
+
+    uint32x4_t CrCr = vld1q_u32 (Cr_array);
+    CrCr = vsubq_u32(CrCr, scaled_vector_128);
+
+    // Red Conversion
+    uint32x4_t scalar_vector_D1 = vdupq_n_u32(D1);
+    uint32x4_t YY_scaled = vmulq_u32(YY, scalar_vector_D1);
+
+    uint32x4_t scalar_vector_D2 = vdupq_n_u32(D2);
+    uint32x4_t CrCr_scaled = vmulq_u32(CrCr, scalar_vector_D2);
+
+    uint32x4_t RR = vaddq_u32(YY_scaled, CrCr_scaled);
+
+    uint32x4_t rounding = vdupq_n_u32(1 << (K-1));
+
+    RR = vaddq_u32(RR, rounding); // rounding
+    RR = vshrq_n_u32(RR, K); //shifting
+
+    uint32_t RR_result[4];
+    vst1q_u32(RR_result, RR);
+
+    printf("NEON\nRR %u, %u\n", RR_result[0], (uint8_t)RR_result[0]);
+
+    R[row][col] = (uint8_t)RR_result[0];
+    R[row][col+1] = (uint8_t)RR_result[1];
+    R[row+1][col] = (uint8_t)RR_result[2];
+    R[row+1][col+1] = (uint8_t)RR_result[3];
+
+    // Green Conversion
+
+    uint32x4_t scalar_vector_D3 = vdupq_n_u32(D3);
+    uint32x4_t scalar_vector_D4 = vdupq_n_u32(D4);
+
+    CrCr_scaled = vqrdmulq_u32(CrCr, scalar_vector_D3);
+    uint32x4_t CbCb_scaled = vmulq_u32(CbCb, scalar_vector_D4);
+
+    uint32x4_t GG = vqsubq_u32(YY_scaled, CrCr_scaled);
+    GG = vqsubq_u32(GG, CbCb_scaled);
+
+    GG = vqaddq_u32(GG, rounding); // Rounding
+    GG = vshrq_n_u32(GG, K); // Shifting
+
+    uint32_t GG_result[4];
+    vst1q_u32(GG_result, GG);
+
+    printf("GG %u, %u\n", GG_result[0], (uint8_t)GG_result[0]);
+
+
+    G[row][col] = (uint8_t)GG_result[0];
+    G[row][col+1] = (uint8_t)GG_result[1];
+    G[row+1][col] = (uint8_t)GG_result[2];
+    G[row+1][col+1] = (uint8_t)GG_result[3];
+
+    // Blue Conversion
+
+    uint32x4_t scalar_vector_D5 = vdupq_n_u32(D5);
+    CbCb_scaled = vmulq_u32(CbCb, scalar_vector_D5);
+
+    uint32x4_t BB = vqaddq_u32(YY_scaled, CbCb_scaled);
+
+    BB = vaddq_u32(BB, rounding); // rounding
+
+    BB = vshrq_n_u32(BB, K); //shifting
+
+    uint32_t BB_result[4];
+    vst1q_u32(BB_result, BB);
+
+    printf("BB %u, %u\n", BB_result[0], (uint8_t)BB_result[0]);
+
+    B[row][col] = (uint8_t)BB_result[0];
+    B[row][col+1] = (uint8_t)BB_result[1];
+    B[row+1][col] = (uint8_t)BB_result[2];
+    B[row+1][col+1] = (uint8_t)BB_result[3];
+
+}
 
 // =======
 static void chrominance_upsample(
@@ -350,11 +452,12 @@ static void chrominance_array_upsample( void) {
 
 // =======
 void CSC_YCC_to_RGB( void) {
-  int row, col; // indices for row and column
+  uint8_t row, col; // indices for row and column
 //
-  for( row=0; row<IMAGE_ROW_SIZE; row+=2) {
-    for( col=0; col<IMAGE_COL_SIZE; col+=2) { 
-      //printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
+
+  for( row=IMAGE_ROW_SIZE-1; row&0xFF; row-=2) {
+    for( col=IMAGE_COL_SIZE-1; col-1&0xFF; col-=2) {
+      printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
       switch (YCC_to_RGB_ROUTINE) {
         case 0:
           break;
@@ -363,6 +466,9 @@ void CSC_YCC_to_RGB( void) {
           break;
         case 2:
           CSC_YCC_to_RGB_brute_force_int( row, col);
+          break;
+        case 3:
+          CSC_YCC_to_RGB_neon( row, col);
           break;
         default:
           break;

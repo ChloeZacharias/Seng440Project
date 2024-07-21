@@ -131,7 +131,7 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col) {
   Y_pixel_11 += (1 << (K-1)); // rounding
   Y_pixel_11 = Y_pixel_11 >> K;
 
-  printf("YY %u, %u\n", Y_pixel_00, (uint8_t)Y_pixel_00);
+  //printf("YY %u, %u\n", Y_pixel_00, (uint8_t)Y_pixel_00);
 
 
   Y[row+0][col+0] = (uint8_t)Y_pixel_00;
@@ -145,7 +145,7 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col) {
   Cb_pixel_00 += (1 << (K-1)); // rounding
   Cb_pixel_00 = Cb_pixel_00 >> K;
 
-  printf("Cb %u, %u\n", Cb_pixel_00, (uint8_t)Cb_pixel_00);
+  //printf("Cb %u, %u\n", Cb_pixel_00, (uint8_t)Cb_pixel_00);
 
   Cb_pixel_01 = (128 << (K)) - C21 * R_pixel_01
                              - C22 * G_pixel_01
@@ -171,7 +171,7 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col) {
   Cr_pixel_00 += (1 << (K-1)); // rounding
   Cr_pixel_00 = Cr_pixel_00 >> K;
 
-  printf("Cr %u, %u\n", Cr_pixel_00, (uint8_t)Cr_pixel_00);
+  //printf("Cr %u, %u\n", Cr_pixel_00, (uint8_t)Cr_pixel_00);
 
   Cr_pixel_01 = (128 << (K)) + C31 * R_pixel_01
                              - C32 * G_pixel_01
@@ -259,7 +259,7 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     uint32_t YY_result[4];
     vst1q_u32(YY_result, YY);
 
-    printf("NEON\nYY %u, %u\n", YY_result[0], (uint8_t)YY_result[0]);
+    //printf("NEON\nYY %u, %u\n", YY_result[0], (uint8_t)YY_result[0]);
 
     Y[row+0][col+0] = (uint8_t)YY_result[0];
     Y[row+0][col+1] = (uint8_t)YY_result[1];
@@ -289,7 +289,7 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     uint32_t CbCb_result[4];
     vst1q_u32(CbCb_result, CbCb);
 
-    printf("Cb %u, %u\n", CbCb_result[0], (uint8_t)CbCb_result[0]);
+    //printf("Cb %u, %u\n", CbCb_result[0], (uint8_t)CbCb_result[0]);
 
 
     scalar_vector_C1 = vdupq_n_u32(C31);
@@ -315,7 +315,7 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
 
     vst1q_u32(CrCr_result, CrCr);
 
-    printf("Cr %u, %u", CrCr_result[0], (uint8_t)CrCr_result[0]);
+    //printf("Cr %u, %u", CrCr_result[0], (uint8_t)CrCr_result[0]);
 
 
     Cr[row>>1][col>>1] = chrominance_downsample( (uint8_t)CrCr_result[0],
@@ -359,7 +359,7 @@ void CSC_RGB_to_YCC( void) {
 //
   for( row=0; row<IMAGE_ROW_SIZE; row+=2) {
     for( col=0; col<IMAGE_COL_SIZE; col+=2) { 
-      printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
+      //printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
       switch (RGB_to_YCC_ROUTINE) {
         case 0:
           break;
