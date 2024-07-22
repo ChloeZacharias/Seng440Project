@@ -6,14 +6,14 @@ from datetime import datetime
 import re
 
 
-def main(output=True):
+def main(output=True, compiler="gcc"):
     # Define the C source file and the output executable file
     main_file = "CSC_main.c"
     extra_files = ["CSC_RGB_to_YCC_01.c", "CSC_YCC_to_RGB_01.c"]
 
     output_file = "CSC_main"
 
-    command_compile = f"gcc -O3 -o {output_file} {main_file} {' '.join(extra_files)} -mfpu=neon"
+    command_compile = f"{compiler} -O3 -o {output_file} {main_file} {' '.join(extra_files)} -mfpu=neon"
 
     # Compile the C program
     print(f"Compiling Program...\n{command_compile}")
@@ -63,4 +63,5 @@ def main(output=True):
 
 
 if __name__ == '__main__':
-    main(sys.argv[0] == "out")
+    print(f"Calling with {sys.argv[0] == 'out'},{sys.argv[1]}")
+    main(sys.argv[0] == "out", sys.argv[1])
