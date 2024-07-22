@@ -64,4 +64,4 @@ def main(output=True, compiler="gcc"):
 
 if __name__ == '__main__':
     print(f"Calling with {sys.argv[0] == 'out'},{sys.argv[1]}")
-    main(sys.argv[0] == "out", sys.argv[1])
+    main(sys.argv[1] == "out", sys.argv[2])
