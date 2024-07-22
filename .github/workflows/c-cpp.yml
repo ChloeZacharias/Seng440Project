@@ -13,29 +13,6 @@ jobs:
       - name: Install ARM GCC toolchain
         run: sudo apt-get install -y gcc-arm-linux-gnueabihf cmake libcmocka-dev
 
-      # Compile C program
+      # Test C program
       - name: Compile Tests
-        run: |
-          gcc conversion_v1.c -o conversion_v1
-
-      # Run C tests
-      - name: Run v1 tests
-        run: python ./tests/test.py ./conversion_v1
-
-      # Compile C program
-      - name: Compile Tests
-        run: |
-          gcc conversion_v2.c -o conversion_v2
-
-      # Run C tests
-      - name: Run v2 tests
-        run: python ./tests/test.py ./conversion_v2
-
-      # Compile C program
-      - name: Compile Tests
-        run: |
-          gcc conversion_v3.c -o conversion_v3
-
-      # Run C tests
-      - name: Run v3 tests
-        run: python ./tests/test.py ./conversion_v3
+        run: cd ./Color_Space_Conversion/LESSON_103_CSC/C && python test.py out
