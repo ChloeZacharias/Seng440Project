@@ -19,4 +19,4 @@ jobs:
 
       # Test C program
       - name: Compile Tests
-        run: cd ./Color_Space_Conversion/LESSON_103_CSC/C && python test.py out
+        run: cd ./Color_Space_Conversion/LESSON_103_CSC/C && python test.py out arm-linux-gnueabihf-gcc
