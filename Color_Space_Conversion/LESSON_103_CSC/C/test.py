@@ -6,7 +6,7 @@ from datetime import datetime
 import re
 
 
-def main(output=True, compiler="gcc"):
+def main(output=True, compiler="gcc", run_prefix=""):
     # Define the C source file and the output executable file
     main_file = "CSC_main.c"
     extra_files = ["CSC_RGB_to_YCC_01.c", "CSC_YCC_to_RGB_01.c"]
@@ -26,8 +26,9 @@ def main(output=True, compiler="gcc"):
         print("Compilation failed.")
         exit(1)
 
-    command_run = f"./{output_file}"
+    command_run = f"{run_prefix} ./{output_file}"
     start_time = time.time()
+
     os.system(command_run)
 
     result_time = time.time() - start_time
@@ -38,7 +39,7 @@ def main(output=True, compiler="gcc"):
 
     current_datetime = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
 
-    command_cachegrind = f"valgrind --tool=cachegrind --cachegrind-out-file=cachegrind.out {command_run}"
+    command_cachegrind = f"{run_prefix} valgrind --tool=cachegrind --cachegrind-out-file=cachegrind.out {command_run}"
 
     result_cachegrind = subprocess.run(command_cachegrind, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                        text=True)
@@ -63,5 +64,11 @@ def main(output=True, compiler="gcc"):
 
 
 if __name__ == '__main__':
-    print(f"Calling with {sys.argv[0] == 'out'},{sys.argv[1]}")
-    main(sys.argv[1] == "out", sys.argv[2])
+    try:
+        if len(sys.argv) != 1:
+            print(f"Calling with {sys.argv[1] == 'out'},{sys.argv[2]},{sys.argv[3]}")
+            main(sys.argv[1] == "out", sys.argv[2], sys.argv[3])
+        else:
+            main()
+    except Exception as e:
+        print("Cannot run test.py with current setup\n---", e)

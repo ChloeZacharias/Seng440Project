@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install ARM GCC toolchain
-        run: sudo apt-get install -y gcc-arm-linux-gnueabihf
+        run: sudo apt-get install -y gcc-arm-linux-gnueabihf qemu qemu-user-static
 
       - name: Redirect path
         run: |
@@ -19,4 +19,4 @@ jobs:
 
       # Test C program
       - name: Compile Tests
-        run: cd ./Color_Space_Conversion/LESSON_103_CSC/C && python test.py out arm-linux-gnueabihf-gcc
+        run: cd ./Color_Space_Conversion/LESSON_103_CSC/C && python test.py out arm-linux-gnueabihf-gcc qemu-arm-static
