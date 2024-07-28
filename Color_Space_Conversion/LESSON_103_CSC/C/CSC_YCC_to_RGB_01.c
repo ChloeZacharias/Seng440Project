@@ -279,7 +279,7 @@ static void CSC_YCC_to_RGB_neon( int row, int col) {
     uint32_t RR_result[4];
     vst1q_u32(RR_result, RR);
 
-    printf("NEON\nRR %u, %u\n", RR_result[0], (uint8_t)RR_result[0]);
+    //printf("NEON\nRR %u, %u\n", RR_result[0], (uint8_t)RR_result[0]);
 
     R[row][col] = (uint8_t)RR_result[0];
     R[row][col+1] = (uint8_t)RR_result[1];
@@ -303,7 +303,7 @@ static void CSC_YCC_to_RGB_neon( int row, int col) {
     uint32_t GG_result[4];
     vst1q_u32(GG_result, GG);
 
-    printf("GG %u, %u\n", GG_result[0], (uint8_t)GG_result[0]);
+    //printf("GG %u, %u\n", GG_result[0], (uint8_t)GG_result[0]);
 
 
     G[row][col] = (uint8_t)GG_result[0];

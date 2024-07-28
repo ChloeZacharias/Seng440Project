@@ -68,6 +68,8 @@ if __name__ == '__main__':
         if len(sys.argv) != 1:
             print(f"Calling with {sys.argv[1] == 'out'},{sys.argv[2]},{sys.argv[3]}")
             main(sys.argv[1] == "out", sys.argv[2], sys.argv[3])
+        elif len(sys.argv) == 2:
+            main(sys.argv[1] == "out")
         else:
             main()
     except Exception as e:

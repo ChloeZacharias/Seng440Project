@@ -8,6 +8,10 @@
 #include "CSC_global.h"
 #include <arm_neon.h>
 
+#define Y_MAX 235
+#define CrCb_MAX 240
+#define YCC_MIN 16
+
 // private data
 
 // private prototypes
@@ -21,6 +25,24 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col);
 static uint8_t chrominance_downsample(
     uint8_t C_pixel_1, uint8_t C_pixel_2,
     uint8_t C_pixel_3, uint8_t C_pixel_4);
+
+
+static inline void clamp_y(uint8_t *values) {
+    int i = 1 << 2;
+    for (; i; --i){
+        if (values[i] < YCC_MIN) values[i] = YCC_MIN;
+        if (values[i] > Y_MAX)  values[i] = Y_MAX;
+    }
+}
+
+static inline void clamp_crcb(uint8_t *values) {
+    int i = 1 << 2;
+    for (; i; i--){
+        if (values[i] < YCC_MIN) values[i] = YCC_MIN;
+        if (values[i] > CrCb_MAX)  values[i] = CrCb_MAX;
+    }
+}
+
 
 // private definitions
 // =======
@@ -205,9 +227,9 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col) {
 
 static void CSC_RGB_to_YCC_neon( int row, int col) {
 //
-    uint32_t R_array[4] = {(uint8_t)R[row][col], (uint8_t)R[row][col+1], (uint8_t)R[row+1][col], (uint8_t)R[row+1][col+1]};
-    uint32_t G_array[4] = {(uint8_t)G[row][col], (uint8_t)G[row][col+1], (uint8_t)G[row+1][col], (uint8_t)G[row+1][col+1]};
-    uint32_t B_array[4] = {(uint8_t)B[row][col], (uint8_t)B[row][col+1], (uint8_t)B[row+1][col], (uint8_t)B[row+1][col+1]};
+    uint32_t R_array[4] = {R[row][col], R[row][col+1], R[row+1][col], R[row+1][col+1]};
+    uint32_t G_array[4] = {G[row][col], G[row][col+1], G[row+1][col], G[row+1][col+1]};
+    uint32_t B_array[4] = {B[row][col], B[row][col+1], B[row+1][col], B[row+1][col+1]};
 
     // Put all the pixel values in a neon vector to make repeat calculations faster
     uint32x4_t RR = vld1q_u32 (R_array);
@@ -237,11 +259,14 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
     vst1q_u32(YY_result, YY);
 
     //printf("NEON\nYY %u, %u\n", YY_result[0], (uint8_t)YY_result[0]);
+    clamp_y(YY_result);
 
-    Y[row][col] = (uint8_t)YY_result[0];
-    Y[row][col+1] = (uint8_t)YY_result[1];
-    Y[row+1][col] = (uint8_t)YY_result[2];
-    Y[row+1][col+1] = (uint8_t)YY_result[3];
+    Y[row][col] = YY_result[0];
+    Y[row][col+1] = YY_result[1];
+    Y[row+1][col] = YY_result[2];
+    Y[row+1][col+1] = YY_result[3];
+
+
 
     // GETTING THE Cb VALUES
     scalar_vector_C1 = vdupq_n_u32(C21);
@@ -265,6 +290,8 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
 
     uint32_t CbCb_result[4];
     vst1q_u32(CbCb_result, CbCb);
+
+    clamp_crcb(CbCb_result);
 
     //printf("Cb %u, %u\n", CbCb_result[0], (uint8_t)CbCb_result[0]);
 
@@ -290,9 +317,12 @@ static void CSC_RGB_to_YCC_neon( int row, int col) {
 
     uint32_t CrCr_result[4];
 
-    vst1q_u32(CrCr_result, CrCr);
+    vst1q_u32( CrCr_result, CrCr);
 
     //printf("Cr %u, %u", CrCr_result[0], (uint8_t)CrCr_result[0]);
+    uint8_t i = 1<<2 ;
+
+    clamp_crcb(CrCr_result);
 
 
     Cr[row>>1][col>>1] = chrominance_downsample( (uint8_t)CrCr_result[0],
