@@ -11,7 +11,7 @@
 #define CrCb_MAX 240
 #define YCC_MIN 16
 
-#define DEBUG 1
+#define DEBUG 0
 
 static inline void print_debug(char* string) {
     if (DEBUG) {
@@ -358,8 +358,9 @@ void CSC_YCC_to_RGB_neon( int row, int col) {
 
     uint32x4_t rounding = vdupq_n_u32(1 << (K-1));
 
-    RR = vqaddq_u32(RR, rounding); // rounding
-    RR = vshrq_n_u32(RR, K); //shifting
+    //RR = vqaddq_u32(RR, rounding); // rounding
+    //RR = vqsubq_u32(RR, vdupq_n_u32(10<<(K-1)));
+    RR = vshrq_n_u32(RR, K-1); //shifting
 
     uint32_t RR_result[4];
     vst1q_u32(RR_result, RR);
@@ -380,8 +381,10 @@ void CSC_YCC_to_RGB_neon( int row, int col) {
     uint32x4_t GG = vqsubq_u32(YY_scaled, CrCr_scaled);
     GG = vqsubq_u32(GG, CbCb_scaled);
 
-    GG = vqaddq_u32(GG, rounding); // Rounding
-    GG = vshrq_n_u32(GG, K); // Shifting
+    //GG = vqaddq_u32(GG, rounding); // Rounding
+
+    GG = vqsubq_u32(GG, vdupq_n_u32(10<<(K-1)));
+    GG = vshrq_n_u32(GG, K-1); // Shifting
 
     uint32_t GG_result[4];
     vst1q_u32(GG_result, GG);
@@ -399,9 +402,10 @@ void CSC_YCC_to_RGB_neon( int row, int col) {
 
     uint32x4_t BB = vqaddq_u32(YY_scaled, CbCb_scaled);
 
-    BB = vqaddq_u32(BB, rounding); // rounding
+    //BB = vqaddq_u32(BB, rounding); // rounding
+    //BB = vqsubq_u32(BB, vdupq_n_u32(10<<(K-1)));
 
-    BB = vshrq_n_u32(BB, K); //shifting
+    BB = vshrq_n_u32(BB, K-1); //shifting
 
     uint32_t BB_result[4];
     vst1q_u32(BB_result, BB);

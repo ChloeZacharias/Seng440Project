@@ -184,7 +184,9 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
 
   G_pixel_00 = D1 * Y_pixel_00 - D3 * Cr_pixel_00
                                - D4 * Cb_pixel_00;
+    printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
   G_pixel_00 += (1 << (K-1)); // rounding
+    printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
   G_pixel_00 = G_pixel_00 >> K;
 
   G_pixel_01 = D1 * Y_pixel_01 - D3 * Cr_pixel_01
@@ -199,6 +201,7 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
 
   G_pixel_11 = D1 * Y_pixel_11 - D3 * Cr_pixel_11
                                - D4 * Cb_pixel_11;
+
   G_pixel_11 += (1 << (K-1)); // rounding
   G_pixel_11 = G_pixel_11 >> K;
 
