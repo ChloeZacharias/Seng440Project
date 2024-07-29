@@ -9,7 +9,7 @@ import re
 def main(output=True, compiler="gcc", run_prefix=""):
     # Define the C source file and the output executable file
     main_file = "CSC_main.c"
-    extra_files = ["CSC_RGB_to_YCC_01.c", "CSC_YCC_to_RGB_01.c"]
+    extra_files = ["CSC_RGB_to_YCC_01.c", "CSC_YCC_to_RGB_01.c", "./NEW/neon_conversions.c"]
 
     output_file = "CSC_main"
 

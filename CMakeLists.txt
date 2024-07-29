@@ -16,6 +16,8 @@ add_executable(Seng440Project
         Color_Space_Conversion/LESSON_103_CSC/C/CSC_RGB_to_YCC_01.c
         Color_Space_Conversion/LESSON_103_CSC/C/CSC_YCC_to_RGB_01.c
         Color_Space_Conversion/LESSON_103_CSC/C/CSC_RGB_to_YCC_01.c
+        Color_Space_Conversion/LESSON_103_CSC/C/NEW/neon_conversions.h
+        Color_Space_Conversion/LESSON_103_CSC/C/NEW/neon_conversions.c
 )
 
 # Specify additional source files if they are not included in the main source files
