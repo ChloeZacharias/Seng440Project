@@ -1,0 +1,3899 @@
+Log(2024-07-28 20-19-34):
+Runtime: 2.4017882347106934
+--------------------------------------------------------------------------------
+I1 cache:         16384 B, 64 B, 4-way associative
+D1 cache:         16384 B, 64 B, 4-way associative
+LL cache:         262144 B, 64 B, 8-way associative
+Command:          ./CSC_main
+Data file:        cachegrind.out
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Thresholds:       0.1 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   
+Auto-annotation:  off
+
+--------------------------------------------------------------------------------
+       Ir  I1mr  ILmr        Dr  D1mr  DLmr        Dw  D1mw DLmw 
+--------------------------------------------------------------------------------
+6,334,565 1,546 1,062 1,670,402 5,327 1,727 2,715,763 4,898  703  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+       Ir I1mr ILmr      Dr  D1mr DLmr        Dw  D1mw DLmw  file:function
+--------------------------------------------------------------------------------
+2,739,456   16   15 560,640 1,222    2 1,946,112 3,361   94  ???:CSC_YCC_to_RGB_neon
+1,272,348   69   45 332,773   630    8   194,534   270    3  ???:vfprintf
+  345,616   12    4 207,360     0    0   184,304   344  181  ???:fputc
+  274,944    8    5  46,848     6    2    18,432    53    0  ???:strchrnul
+  271,888    4    2  89,327     6    1    75,467     4    0  ???:_IO_default_xsputn
+  175,872   18   16  37,632   144    0    31,488    79   72  ???:CSC_RGB_to_YCC_neon
+  152,997    9    4  65,512    12    1    55,773     0    0  ???:_IO_file_xsputn@@GLIBC_2.4
+  132,560    6    2  35,912    11    2    32,072     0    0  ???:_itoa_word
+  129,018    3    3  73,726   143  127    46,078     0    0  ???:getc
+  124,421   13   12  14,096   179    0     9,228   147  146  ???:main
+  122,208   41   20  40,587    60   21        26     1    0  ???:???
+   80,165    2    2  10,717     1    1    10,717   275    0  ???:__memcpy_neon
+   57,694   10   10  14,110   784  607        18     1    0  ???:_dl_addr
+   45,324    4    4  16,898     1    1    10,754     0    0  ???:putchar
+   43,519    7    5   9,308     3    3     1,560     1    1  ???:strlen
+   36,864    4    2  18,432    92    1    12,288     0    0  ???:printf
+   34,560    5    3  12,288     4    1     9,216     0    0  ???:vsprintf
+   30,465   31   13  10,337   268  138     5,211     7    4  ???:do_lookup_x
+   24,832    7    2   2,328     3    0    12,440    10    5  ???:_IO_old_init
+   24,240    3    1   9,696     0    0     9,696    82    1  ???:mempcpy
+   23,040    3    3   9,216     0    0     6,144     0    0  ???:read_int
+   22,272    3    3   4,608     0    0     9,984     0    0  ???:_IO_str_init_static_internal
+   19,987   56   56   5,503   493  425     2,654     7    0  ???:_dl_relocate_object
+   17,029   24   10   4,953   118   93     2,641    11    0  ???:_dl_lookup_symbol_x
+   16,896    2    1   6,912     1    1     5,376     0    0  ???:sprintf
+   12,600    1    0   6,288     0    0     7,065     0    0  ???:_IO_setb
+   11,167   28   11       0     0    0         0     0    0  ???:__udivsi3
+   10,208   10    3   3,112     0    0     5,528    13    5  ???:_IO_no_init
+   10,080    6    5   4,480   416    2     2,240     0    0  ???:_IO_padn
+    8,704   23   13   1,898    12    3       612     3    3  ???:strcmp
+    8,338    7    7   1,604    17   17        36     1    1  ???:__GI___tunables_init
+    7,013    0    0       4     1    0         4     0    0  ???:CSC_YCC_to_RGB
+
+
+Cachegrind Result: 
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 82 | Cr: 240 | Cb: 90
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 144 | Cr: 34 | Cb: 54
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 41 | Cr: 110 | Cb: 240
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 235 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+RGB TO YCC
+Y: 16 | Cr: 128 | Cb: 128
+
+[row,col] = [64,48]
+
+
+[row,col] = [64,46]
+
+
+[row,col] = [64,44]
+
+
+[row,col] = [64,42]
+
+
+[row,col] = [64,40]
+
+
+[row,col] = [64,38]
+
+
+[row,col] = [64,36]
+
+
+[row,col] = [64,34]
+
+
+[row,col] = [64,32]
+
+
+[row,col] = [64,30]
+
+
+[row,col] = [64,28]
+
+
+[row,col] = [64,26]
+
+
+[row,col] = [64,24]
+
+
+[row,col] = [64,22]
+
+
+[row,col] = [64,20]
+
+
+[row,col] = [64,18]
+
+
+[row,col] = [64,16]
+
+
+[row,col] = [64,14]
+
+
+[row,col] = [64,12]
+
+
+[row,col] = [64,10]
+
+
+[row,col] = [64,08]
+
+
+[row,col] = [64,06]
+
+
+[row,col] = [64,04]
+
+
+[row,col] = [64,02]
+
+
+[row,col] = [62,48]
+
+
+[row,col] = [62,46]
+
+
+[row,col] = [62,44]
+
+
+[row,col] = [62,42]
+
+
+[row,col] = [62,40]
+
+
+[row,col] = [62,38]
+
+
+[row,col] = [62,36]
+
+
+[row,col] = [62,34]
+
+
+[row,col] = [62,32]
+
+
+[row,col] = [62,30]
+
+
+[row,col] = [62,28]
+
+
+[row,col] = [62,26]
+
+
+[row,col] = [62,24]
+
+
+[row,col] = [62,22]
+
+
+[row,col] = [62,20]
+
+
+[row,col] = [62,18]
+
+
+[row,col] = [62,16]
+
+
+[row,col] = [62,14]
+
+
+[row,col] = [62,12]
+
+
+[row,col] = [62,10]
+
+
+[row,col] = [62,08]
+
+
+[row,col] = [62,06]
+
+
+[row,col] = [62,04]
+
+
+[row,col] = [62,02]
+
+
+[row,col] = [60,48]
+
+
+[row,col] = [60,46]
+
+
+[row,col] = [60,44]
+
+
+[row,col] = [60,42]
+
+
+[row,col] = [60,40]
+
+
+[row,col] = [60,38]
+
+
+[row,col] = [60,36]
+
+
+[row,col] = [60,34]
+
+
+[row,col] = [60,32]
+
+
+[row,col] = [60,30]
+
+
+[row,col] = [60,28]
+
+
+[row,col] = [60,26]
+
+
+[row,col] = [60,24]
+
+
+[row,col] = [60,22]
+
+
+[row,col] = [60,20]
+
+
+[row,col] = [60,18]
+
+
+[row,col] = [60,16]
+
+
+[row,col] = [60,14]
+
+
+[row,col] = [60,12]
+
+
+[row,col] = [60,10]
+
+
+[row,col] = [60,08]
+
+
+[row,col] = [60,06]
+
+
+[row,col] = [60,04]
+
+
+[row,col] = [60,02]
+
+
+[row,col] = [58,48]
+
+
+[row,col] = [58,46]
+
+
+[row,col] = [58,44]
+
+
+[row,col] = [58,42]
+
+
+[row,col] = [58,40]
+
+
+[row,col] = [58,38]
+
+
+[row,col] = [58,36]
+
+
+[row,col] = [58,34]
+
+
+[row,col] = [58,32]
+
+
+[row,col] = [58,30]
+
+
+[row,col] = [58,28]
+
+
+[row,col] = [58,26]
+
+
+[row,col] = [58,24]
+
+
+[row,col] = [58,22]
+
+
+[row,col] = [58,20]
+
+
+[row,col] = [58,18]
+
+
+[row,col] = [58,16]
+
+
+[row,col] = [58,14]
+
+
+[row,col] = [58,12]
+
+
+[row,col] = [58,10]
+
+
+[row,col] = [58,08]
+
+
+[row,col] = [58,06]
+
+
+[row,col] = [58,04]
+
+
+[row,col] = [58,02]
+
+
+[row,col] = [56,48]
+
+
+[row,col] = [56,46]
+
+
+[row,col] = [56,44]
+
+
+[row,col] = [56,42]
+
+
+[row,col] = [56,40]
+
+
+[row,col] = [56,38]
+
+
+[row,col] = [56,36]
+
+
+[row,col] = [56,34]
+
+
+[row,col] = [56,32]
+
+
+[row,col] = [56,30]
+
+
+[row,col] = [56,28]
+
+
+[row,col] = [56,26]
+
+
+[row,col] = [56,24]
+
+
+[row,col] = [56,22]
+
+
+[row,col] = [56,20]
+
+
+[row,col] = [56,18]
+
+
+[row,col] = [56,16]
+
+
+[row,col] = [56,14]
+
+
+[row,col] = [56,12]
+
+
+[row,col] = [56,10]
+
+
+[row,col] = [56,08]
+
+
+[row,col] = [56,06]
+
+
+[row,col] = [56,04]
+
+
+[row,col] = [56,02]
+
+
+[row,col] = [54,48]
+
+
+[row,col] = [54,46]
+
+
+[row,col] = [54,44]
+
+
+[row,col] = [54,42]
+
+
+[row,col] = [54,40]
+
+
+[row,col] = [54,38]
+
+
+[row,col] = [54,36]
+
+
+[row,col] = [54,34]
+
+
+[row,col] = [54,32]
+
+
+[row,col] = [54,30]
+
+
+[row,col] = [54,28]
+
+
+[row,col] = [54,26]
+
+
+[row,col] = [54,24]
+
+
+[row,col] = [54,22]
+
+
+[row,col] = [54,20]
+
+
+[row,col] = [54,18]
+
+
+[row,col] = [54,16]
+
+
+[row,col] = [54,14]
+
+
+[row,col] = [54,12]
+
+
+[row,col] = [54,10]
+
+
+[row,col] = [54,08]
+
+
+[row,col] = [54,06]
+
+
+[row,col] = [54,04]
+
+
+[row,col] = [54,02]
+
+
+[row,col] = [52,48]
+
+
+[row,col] = [52,46]
+
+
+[row,col] = [52,44]
+
+
+[row,col] = [52,42]
+
+
+[row,col] = [52,40]
+
+
+[row,col] = [52,38]
+
+
+[row,col] = [52,36]
+
+
+[row,col] = [52,34]
+
+
+[row,col] = [52,32]
+
+
+[row,col] = [52,30]
+
+
+[row,col] = [52,28]
+
+
+[row,col] = [52,26]
+
+
+[row,col] = [52,24]
+
+
+[row,col] = [52,22]
+
+
+[row,col] = [52,20]
+
+
+[row,col] = [52,18]
+
+
+[row,col] = [52,16]
+
+
+[row,col] = [52,14]
+
+
+[row,col] = [52,12]
+
+
+[row,col] = [52,10]
+
+
+[row,col] = [52,08]
+
+
+[row,col] = [52,06]
+
+
+[row,col] = [52,04]
+
+
+[row,col] = [52,02]
+
+
+[row,col] = [50,48]
+
+
+[row,col] = [50,46]
+
+
+[row,col] = [50,44]
+
+
+[row,col] = [50,42]
+
+
+[row,col] = [50,40]
+
+
+[row,col] = [50,38]
+
+
+[row,col] = [50,36]
+
+
+[row,col] = [50,34]
+
+
+[row,col] = [50,32]
+
+
+[row,col] = [50,30]
+
+
+[row,col] = [50,28]
+
+
+[row,col] = [50,26]
+
+
+[row,col] = [50,24]
+
+
+[row,col] = [50,22]
+
+
+[row,col] = [50,20]
+
+
+[row,col] = [50,18]
+
+
+[row,col] = [50,16]
+
+
+[row,col] = [50,14]
+
+
+[row,col] = [50,12]
+
+
+[row,col] = [50,10]
+
+
+[row,col] = [50,08]
+
+
+[row,col] = [50,06]
+
+
+[row,col] = [50,04]
+
+
+[row,col] = [50,02]
+
+
+[row,col] = [48,48]
+
+
+[row,col] = [48,46]
+
+
+[row,col] = [48,44]
+
+
+[row,col] = [48,42]
+
+
+[row,col] = [48,40]
+
+
+[row,col] = [48,38]
+
+
+[row,col] = [48,36]
+
+
+[row,col] = [48,34]
+
+
+[row,col] = [48,32]
+
+
+[row,col] = [48,30]
+
+
+[row,col] = [48,28]
+
+
+[row,col] = [48,26]
+
+
+[row,col] = [48,24]
+
+
+[row,col] = [48,22]
+
+
+[row,col] = [48,20]
+
+
+[row,col] = [48,18]
+
+
+[row,col] = [48,16]
+
+
+[row,col] = [48,14]
+
+
+[row,col] = [48,12]
+
+
+[row,col] = [48,10]
+
+
+[row,col] = [48,08]
+
+
+[row,col] = [48,06]
+
+
+[row,col] = [48,04]
+
+
+[row,col] = [48,02]
+
+
+[row,col] = [46,48]
+
+
+[row,col] = [46,46]
+
+
+[row,col] = [46,44]
+
+
+[row,col] = [46,42]
+
+
+[row,col] = [46,40]
+
+
+[row,col] = [46,38]
+
+
+[row,col] = [46,36]
+
+
+[row,col] = [46,34]
+
+
+[row,col] = [46,32]
+
+
+[row,col] = [46,30]
+
+
+[row,col] = [46,28]
+
+
+[row,col] = [46,26]
+
+
+[row,col] = [46,24]
+
+
+[row,col] = [46,22]
+
+
+[row,col] = [46,20]
+
+
+[row,col] = [46,18]
+
+
+[row,col] = [46,16]
+
+
+[row,col] = [46,14]
+
+
+[row,col] = [46,12]
+
+
+[row,col] = [46,10]
+
+
+[row,col] = [46,08]
+
+
+[row,col] = [46,06]
+
+
+[row,col] = [46,04]
+
+
+[row,col] = [46,02]
+
+
+[row,col] = [44,48]
+
+
+[row,col] = [44,46]
+
+
+[row,col] = [44,44]
+
+
+[row,col] = [44,42]
+
+
+[row,col] = [44,40]
+
+
+[row,col] = [44,38]
+
+
+[row,col] = [44,36]
+
+
+[row,col] = [44,34]
+
+
+[row,col] = [44,32]
+
+
+[row,col] = [44,30]
+
+
+[row,col] = [44,28]
+
+
+[row,col] = [44,26]
+
+
+[row,col] = [44,24]
+
+
+[row,col] = [44,22]
+
+
+[row,col] = [44,20]
+
+
+[row,col] = [44,18]
+
+
+[row,col] = [44,16]
+
+
+[row,col] = [44,14]
+
+
+[row,col] = [44,12]
+
+
+[row,col] = [44,10]
+
+
+[row,col] = [44,08]
+
+
+[row,col] = [44,06]
+
+
+[row,col] = [44,04]
+
+
+[row,col] = [44,02]
+
+
+[row,col] = [42,48]
+
+
+[row,col] = [42,46]
+
+
+[row,col] = [42,44]
+
+
+[row,col] = [42,42]
+
+
+[row,col] = [42,40]
+
+
+[row,col] = [42,38]
+
+
+[row,col] = [42,36]
+
+
+[row,col] = [42,34]
+
+
+[row,col] = [42,32]
+
+
+[row,col] = [42,30]
+
+
+[row,col] = [42,28]
+
+
+[row,col] = [42,26]
+
+
+[row,col] = [42,24]
+
+
+[row,col] = [42,22]
+
+
+[row,col] = [42,20]
+
+
+[row,col] = [42,18]
+
+
+[row,col] = [42,16]
+
+
+[row,col] = [42,14]
+
+
+[row,col] = [42,12]
+
+
+[row,col] = [42,10]
+
+
+[row,col] = [42,08]
+
+
+[row,col] = [42,06]
+
+
+[row,col] = [42,04]
+
+
+[row,col] = [42,02]
+
+
+[row,col] = [40,48]
+
+
+[row,col] = [40,46]
+
+
+[row,col] = [40,44]
+
+
+[row,col] = [40,42]
+
+
+[row,col] = [40,40]
+
+
+[row,col] = [40,38]
+
+
+[row,col] = [40,36]
+
+
+[row,col] = [40,34]
+
+
+[row,col] = [40,32]
+
+
+[row,col] = [40,30]
+
+
+[row,col] = [40,28]
+
+
+[row,col] = [40,26]
+
+
+[row,col] = [40,24]
+
+
+[row,col] = [40,22]
+
+
+[row,col] = [40,20]
+
+
+[row,col] = [40,18]
+
+
+[row,col] = [40,16]
+
+
+[row,col] = [40,14]
+
+
+[row,col] = [40,12]
+
+
+[row,col] = [40,10]
+
+
+[row,col] = [40,08]
+
+
+[row,col] = [40,06]
+
+
+[row,col] = [40,04]
+
+
+[row,col] = [40,02]
+
+
+[row,col] = [38,48]
+
+
+[row,col] = [38,46]
+
+
+[row,col] = [38,44]
+
+
+[row,col] = [38,42]
+
+
+[row,col] = [38,40]
+
+
+[row,col] = [38,38]
+
+
+[row,col] = [38,36]
+
+
+[row,col] = [38,34]
+
+
+[row,col] = [38,32]
+
+
+[row,col] = [38,30]
+
+
+[row,col] = [38,28]
+
+
+[row,col] = [38,26]
+
+
+[row,col] = [38,24]
+
+
+[row,col] = [38,22]
+
+
+[row,col] = [38,20]
+
+
+[row,col] = [38,18]
+
+
+[row,col] = [38,16]
+
+
+[row,col] = [38,14]
+
+
+[row,col] = [38,12]
+
+
+[row,col] = [38,10]
+
+
+[row,col] = [38,08]
+
+
+[row,col] = [38,06]
+
+
+[row,col] = [38,04]
+
+
+[row,col] = [38,02]
+
+
+[row,col] = [36,48]
+
+
+[row,col] = [36,46]
+
+
+[row,col] = [36,44]
+
+
+[row,col] = [36,42]
+
+
+[row,col] = [36,40]
+
+
+[row,col] = [36,38]
+
+
+[row,col] = [36,36]
+
+
+[row,col] = [36,34]
+
+
+[row,col] = [36,32]
+
+
+[row,col] = [36,30]
+
+
+[row,col] = [36,28]
+
+
+[row,col] = [36,26]
+
+
+[row,col] = [36,24]
+
+
+[row,col] = [36,22]
+
+
+[row,col] = [36,20]
+
+
+[row,col] = [36,18]
+
+
+[row,col] = [36,16]
+
+
+[row,col] = [36,14]
+
+
+[row,col] = [36,12]
+
+
+[row,col] = [36,10]
+
+
+[row,col] = [36,08]
+
+
+[row,col] = [36,06]
+
+
+[row,col] = [36,04]
+
+
+[row,col] = [36,02]
+
+
+[row,col] = [34,48]
+
+
+[row,col] = [34,46]
+
+
+[row,col] = [34,44]
+
+
+[row,col] = [34,42]
+
+
+[row,col] = [34,40]
+
+
+[row,col] = [34,38]
+
+
+[row,col] = [34,36]
+
+
+[row,col] = [34,34]
+
+
+[row,col] = [34,32]
+
+
+[row,col] = [34,30]
+
+
+[row,col] = [34,28]
+
+
+[row,col] = [34,26]
+
+
+[row,col] = [34,24]
+
+
+[row,col] = [34,22]
+
+
+[row,col] = [34,20]
+
+
+[row,col] = [34,18]
+
+
+[row,col] = [34,16]
+
+
+[row,col] = [34,14]
+
+
+[row,col] = [34,12]
+
+
+[row,col] = [34,10]
+
+
+[row,col] = [34,08]
+
+
+[row,col] = [34,06]
+
+
+[row,col] = [34,04]
+
+
+[row,col] = [34,02]
+
+
+[row,col] = [32,48]
+
+
+[row,col] = [32,46]
+
+
+[row,col] = [32,44]
+
+
+[row,col] = [32,42]
+
+
+[row,col] = [32,40]
+
+
+[row,col] = [32,38]
+
+
+[row,col] = [32,36]
+
+
+[row,col] = [32,34]
+
+
+[row,col] = [32,32]
+
+
+[row,col] = [32,30]
+
+
+[row,col] = [32,28]
+
+
+[row,col] = [32,26]
+
+
+[row,col] = [32,24]
+
+
+[row,col] = [32,22]
+
+
+[row,col] = [32,20]
+
+
+[row,col] = [32,18]
+
+
+[row,col] = [32,16]
+
+
+[row,col] = [32,14]
+
+
+[row,col] = [32,12]
+
+
+[row,col] = [32,10]
+
+
+[row,col] = [32,08]
+
+
+[row,col] = [32,06]
+
+
+[row,col] = [32,04]
+
+
+[row,col] = [32,02]
+
+
+[row,col] = [30,48]
+
+
+[row,col] = [30,46]
+
+
+[row,col] = [30,44]
+
+
+[row,col] = [30,42]
+
+
+[row,col] = [30,40]
+
+
+[row,col] = [30,38]
+
+
+[row,col] = [30,36]
+
+
+[row,col] = [30,34]
+
+
+[row,col] = [30,32]
+
+
+[row,col] = [30,30]
+
+
+[row,col] = [30,28]
+
+
+[row,col] = [30,26]
+
+
+[row,col] = [30,24]
+
+
+[row,col] = [30,22]
+
+
+[row,col] = [30,20]
+
+
+[row,col] = [30,18]
+
+
+[row,col] = [30,16]
+
+
+[row,col] = [30,14]
+
+
+[row,col] = [30,12]
+
+
+[row,col] = [30,10]
+
+
+[row,col] = [30,08]
+
+
+[row,col] = [30,06]
+
+
+[row,col] = [30,04]
+
+
+[row,col] = [30,02]
+
+
+[row,col] = [28,48]
+
+
+[row,col] = [28,46]
+
+
+[row,col] = [28,44]
+
+
+[row,col] = [28,42]
+
+
+[row,col] = [28,40]
+
+
+[row,col] = [28,38]
+
+
+[row,col] = [28,36]
+
+
+[row,col] = [28,34]
+
+
+[row,col] = [28,32]
+
+
+[row,col] = [28,30]
+
+
+[row,col] = [28,28]
+
+
+[row,col] = [28,26]
+
+
+[row,col] = [28,24]
+
+
+[row,col] = [28,22]
+
+
+[row,col] = [28,20]
+
+
+[row,col] = [28,18]
+
+
+[row,col] = [28,16]
+
+
+[row,col] = [28,14]
+
+
+[row,col] = [28,12]
+
+
+[row,col] = [28,10]
+
+
+[row,col] = [28,08]
+
+
+[row,col] = [28,06]
+
+
+[row,col] = [28,04]
+
+
+[row,col] = [28,02]
+
+
+[row,col] = [26,48]
+
+
+[row,col] = [26,46]
+
+
+[row,col] = [26,44]
+
+
+[row,col] = [26,42]
+
+
+[row,col] = [26,40]
+
+
+[row,col] = [26,38]
+
+
+[row,col] = [26,36]
+
+
+[row,col] = [26,34]
+
+
+[row,col] = [26,32]
+
+
+[row,col] = [26,30]
+
+
+[row,col] = [26,28]
+
+
+[row,col] = [26,26]
+
+
+[row,col] = [26,24]
+
+
+[row,col] = [26,22]
+
+
+[row,col] = [26,20]
+
+
+[row,col] = [26,18]
+
+
+[row,col] = [26,16]
+
+
+[row,col] = [26,14]
+
+
+[row,col] = [26,12]
+
+
+[row,col] = [26,10]
+
+
+[row,col] = [26,08]
+
+
+[row,col] = [26,06]
+
+
+[row,col] = [26,04]
+
+
+[row,col] = [26,02]
+
+
+[row,col] = [24,48]
+
+
+[row,col] = [24,46]
+
+
+[row,col] = [24,44]
+
+
+[row,col] = [24,42]
+
+
+[row,col] = [24,40]
+
+
+[row,col] = [24,38]
+
+
+[row,col] = [24,36]
+
+
+[row,col] = [24,34]
+
+
+[row,col] = [24,32]
+
+
+[row,col] = [24,30]
+
+
+[row,col] = [24,28]
+
+
+[row,col] = [24,26]
+
+
+[row,col] = [24,24]
+
+
+[row,col] = [24,22]
+
+
+[row,col] = [24,20]
+
+
+[row,col] = [24,18]
+
+
+[row,col] = [24,16]
+
+
+[row,col] = [24,14]
+
+
+[row,col] = [24,12]
+
+
+[row,col] = [24,10]
+
+
+[row,col] = [24,08]
+
+
+[row,col] = [24,06]
+
+
+[row,col] = [24,04]
+
+
+[row,col] = [24,02]
+
+
+[row,col] = [22,48]
+
+
+[row,col] = [22,46]
+
+
+[row,col] = [22,44]
+
+
+[row,col] = [22,42]
+
+
+[row,col] = [22,40]
+
+
+[row,col] = [22,38]
+
+
+[row,col] = [22,36]
+
+
+[row,col] = [22,34]
+
+
+[row,col] = [22,32]
+
+
+[row,col] = [22,30]
+
+
+[row,col] = [22,28]
+
+
+[row,col] = [22,26]
+
+
+[row,col] = [22,24]
+
+
+[row,col] = [22,22]
+
+
+[row,col] = [22,20]
+
+
+[row,col] = [22,18]
+
+
+[row,col] = [22,16]
+
+
+[row,col] = [22,14]
+
+
+[row,col] = [22,12]
+
+
+[row,col] = [22,10]
+
+
+[row,col] = [22,08]
+
+
+[row,col] = [22,06]
+
+
+[row,col] = [22,04]
+
+
+[row,col] = [22,02]
+
+
+[row,col] = [20,48]
+
+
+[row,col] = [20,46]
+
+
+[row,col] = [20,44]
+
+
+[row,col] = [20,42]
+
+
+[row,col] = [20,40]
+
+
+[row,col] = [20,38]
+
+
+[row,col] = [20,36]
+
+
+[row,col] = [20,34]
+
+
+[row,col] = [20,32]
+
+
+[row,col] = [20,30]
+
+
+[row,col] = [20,28]
+
+
+[row,col] = [20,26]
+
+
+[row,col] = [20,24]
+
+
+[row,col] = [20,22]
+
+
+[row,col] = [20,20]
+
+
+[row,col] = [20,18]
+
+
+[row,col] = [20,16]
+
+
+[row,col] = [20,14]
+
+
+[row,col] = [20,12]
+
+
+[row,col] = [20,10]
+
+
+[row,col] = [20,08]
+
+
+[row,col] = [20,06]
+
+
+[row,col] = [20,04]
+
+
+[row,col] = [20,02]
+
+
+[row,col] = [18,48]
+
+
+[row,col] = [18,46]
+
+
+[row,col] = [18,44]
+
+
+[row,col] = [18,42]
+
+
+[row,col] = [18,40]
+
+
+[row,col] = [18,38]
+
+
+[row,col] = [18,36]
+
+
+[row,col] = [18,34]
+
+
+[row,col] = [18,32]
+
+
+[row,col] = [18,30]
+
+
+[row,col] = [18,28]
+
+
+[row,col] = [18,26]
+
+
+[row,col] = [18,24]
+
+
+[row,col] = [18,22]
+
+
+[row,col] = [18,20]
+
+
+[row,col] = [18,18]
+
+
+[row,col] = [18,16]
+
+
+[row,col] = [18,14]
+
+
+[row,col] = [18,12]
+
+
+[row,col] = [18,10]
+
+
+[row,col] = [18,08]
+
+
+[row,col] = [18,06]
+
+
+[row,col] = [18,04]
+
+
+[row,col] = [18,02]
+
+
+[row,col] = [16,48]
+
+
+[row,col] = [16,46]
+
+
+[row,col] = [16,44]
+
+
+[row,col] = [16,42]
+
+
+[row,col] = [16,40]
+
+
+[row,col] = [16,38]
+
+
+[row,col] = [16,36]
+
+
+[row,col] = [16,34]
+
+
+[row,col] = [16,32]
+
+
+[row,col] = [16,30]
+
+
+[row,col] = [16,28]
+
+
+[row,col] = [16,26]
+
+
+[row,col] = [16,24]
+
+
+[row,col] = [16,22]
+
+
+[row,col] = [16,20]
+
+
+[row,col] = [16,18]
+
+
+[row,col] = [16,16]
+
+
+[row,col] = [16,14]
+
+
+[row,col] = [16,12]
+
+
+[row,col] = [16,10]
+
+
+[row,col] = [16,08]
+
+
+[row,col] = [16,06]
+
+
+[row,col] = [16,04]
+
+
+[row,col] = [16,02]
+
+
+[row,col] = [14,48]
+
+
+[row,col] = [14,46]
+
+
+[row,col] = [14,44]
+
+
+[row,col] = [14,42]
+
+
+[row,col] = [14,40]
+
+
+[row,col] = [14,38]
+
+
+[row,col] = [14,36]
+
+
+[row,col] = [14,34]
+
+
+[row,col] = [14,32]
+
+
+[row,col] = [14,30]
+
+
+[row,col] = [14,28]
+
+
+[row,col] = [14,26]
+
+
+[row,col] = [14,24]
+
+
+[row,col] = [14,22]
+
+
+[row,col] = [14,20]
+
+
+[row,col] = [14,18]
+
+
+[row,col] = [14,16]
+
+
+[row,col] = [14,14]
+
+
+[row,col] = [14,12]
+
+
+[row,col] = [14,10]
+
+
+[row,col] = [14,08]
+
+
+[row,col] = [14,06]
+
+
+[row,col] = [14,04]
+
+
+[row,col] = [14,02]
+
+
+[row,col] = [12,48]
+
+
+[row,col] = [12,46]
+
+
+[row,col] = [12,44]
+
+
+[row,col] = [12,42]
+
+
+[row,col] = [12,40]
+
+
+[row,col] = [12,38]
+
+
+[row,col] = [12,36]
+
+
+[row,col] = [12,34]
+
+
+[row,col] = [12,32]
+
+
+[row,col] = [12,30]
+
+
+[row,col] = [12,28]
+
+
+[row,col] = [12,26]
+
+
+[row,col] = [12,24]
+
+
+[row,col] = [12,22]
+
+
+[row,col] = [12,20]
+
+
+[row,col] = [12,18]
+
+
+[row,col] = [12,16]
+
+
+[row,col] = [12,14]
+
+
+[row,col] = [12,12]
+
+
+[row,col] = [12,10]
+
+
+[row,col] = [12,08]
+
+
+[row,col] = [12,06]
+
+
+[row,col] = [12,04]
+
+
+[row,col] = [12,02]
+
+
+[row,col] = [10,48]
+
+
+[row,col] = [10,46]
+
+
+[row,col] = [10,44]
+
+
+[row,col] = [10,42]
+
+
+[row,col] = [10,40]
+
+
+[row,col] = [10,38]
+
+
+[row,col] = [10,36]
+
+
+[row,col] = [10,34]
+
+
+[row,col] = [10,32]
+
+
+[row,col] = [10,30]
+
+
+[row,col] = [10,28]
+
+
+[row,col] = [10,26]
+
+
+[row,col] = [10,24]
+
+
+[row,col] = [10,22]
+
+
+[row,col] = [10,20]
+
+
+[row,col] = [10,18]
+
+
+[row,col] = [10,16]
+
+
+[row,col] = [10,14]
+
+
+[row,col] = [10,12]
+
+
+[row,col] = [10,10]
+
+
+[row,col] = [10,08]
+
+
+[row,col] = [10,06]
+
+
+[row,col] = [10,04]
+
+
+[row,col] = [10,02]
+
+
+[row,col] = [08,48]
+
+
+[row,col] = [08,46]
+
+
+[row,col] = [08,44]
+
+
+[row,col] = [08,42]
+
+
+[row,col] = [08,40]
+
+
+[row,col] = [08,38]
+
+
+[row,col] = [08,36]
+
+
+[row,col] = [08,34]
+
+
+[row,col] = [08,32]
+
+
+[row,col] = [08,30]
+
+
+[row,col] = [08,28]
+
+
+[row,col] = [08,26]
+
+
+[row,col] = [08,24]
+
+
+[row,col] = [08,22]
+
+
+[row,col] = [08,20]
+
+
+[row,col] = [08,18]
+
+
+[row,col] = [08,16]
+
+
+[row,col] = [08,14]
+
+
+[row,col] = [08,12]
+
+
+[row,col] = [08,10]
+
+
+[row,col] = [08,08]
+
+
+[row,col] = [08,06]
+
+
+[row,col] = [08,04]
+
+
+[row,col] = [08,02]
+
+
+[row,col] = [06,48]
+
+
+[row,col] = [06,46]
+
+
+[row,col] = [06,44]
+
+
+[row,col] = [06,42]
+
+
+[row,col] = [06,40]
+
+
+[row,col] = [06,38]
+
+
+[row,col] = [06,36]
+
+
+[row,col] = [06,34]
+
+
+[row,col] = [06,32]
+
+
+[row,col] = [06,30]
+
+
+[row,col] = [06,28]
+
+
+[row,col] = [06,26]
+
+
+[row,col] = [06,24]
+
+
+[row,col] = [06,22]
+
+
+[row,col] = [06,20]
+
+
+[row,col] = [06,18]
+
+
+[row,col] = [06,16]
+
+
+[row,col] = [06,14]
+
+
+[row,col] = [06,12]
+
+
+[row,col] = [06,10]
+
+
+[row,col] = [06,08]
+
+
+[row,col] = [06,06]
+
+
+[row,col] = [06,04]
+
+
+[row,col] = [06,02]
+
+
+[row,col] = [04,48]
+
+
+[row,col] = [04,46]
+
+
+[row,col] = [04,44]
+
+
+[row,col] = [04,42]
+
+
+[row,col] = [04,40]
+
+
+[row,col] = [04,38]
+
+
+[row,col] = [04,36]
+
+
+[row,col] = [04,34]
+
+
+[row,col] = [04,32]
+
+
+[row,col] = [04,30]
+
+
+[row,col] = [04,28]
+
+
+[row,col] = [04,26]
+
+
+[row,col] = [04,24]
+
+
+[row,col] = [04,22]
+
+
+[row,col] = [04,20]
+
+
+[row,col] = [04,18]
+
+
+[row,col] = [04,16]
+
+
+[row,col] = [04,14]
+
+
+[row,col] = [04,12]
+
+
+[row,col] = [04,10]
+
+
+[row,col] = [04,08]
+
+
+[row,col] = [04,06]
+
+
+[row,col] = [04,04]
+
+
+[row,col] = [04,02]
+
+
+[row,col] = [02,48]
+
+
+[row,col] = [02,46]
+
+
+[row,col] = [02,44]
+
+
+[row,col] = [02,42]
+
+
+[row,col] = [02,40]
+
+
+[row,col] = [02,38]
+
+
+[row,col] = [02,36]
+
+
+[row,col] = [02,34]
+
+
+[row,col] = [02,32]
+
+
+[row,col] = [02,30]
+
+
+[row,col] = [02,28]
+
+
+[row,col] = [02,26]
+
+
+[row,col] = [02,24]
+
+
+[row,col] = [02,22]
+
+
+[row,col] = [02,20]
+
+
+[row,col] = [02,18]
+
+
+[row,col] = [02,16]
+
+
+[row,col] = [02,14]
+
+
+[row,col] = [02,12]
+
+
+[row,col] = [02,10]
+
+
+[row,col] = [02,08]
+
+
+[row,col] = [02,06]
+
+
+[row,col] = [02,04]
+
+
+[row,col] = [02,02]
+

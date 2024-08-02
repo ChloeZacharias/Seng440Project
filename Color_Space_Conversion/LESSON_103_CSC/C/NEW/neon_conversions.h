@@ -7,5 +7,7 @@
 
 void CSC_RGB_to_YCC_neon(int row, int col);
 void CSC_YCC_to_RGB_neon(int row, int col);
+void chrominance_upsample(void);
+void chrominance_upsample()
 
 #endif //SENG440PROJECT_NEON_CONVERSIONS_H

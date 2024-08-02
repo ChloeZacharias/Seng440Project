@@ -180,13 +180,13 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
   R[row+1][col+0] = (uint8_t)R_pixel_10;
   R[row+1][col+1] = (uint8_t)R_pixel_11;
 
-  printf("RR %u, %u\n", R_pixel_00, (uint8_t)R_pixel_00);
+  //printf("RR %u, %u\n", R_pixel_00, (uint8_t)R_pixel_00);
 
   G_pixel_00 = D1 * Y_pixel_00 - D3 * Cr_pixel_00
                                - D4 * Cb_pixel_00;
-    printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
+    //printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
   G_pixel_00 += (1 << (K-1)); // rounding
-    printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
+    //printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
   G_pixel_00 = G_pixel_00 >> K;
 
   G_pixel_01 = D1 * Y_pixel_01 - D3 * Cr_pixel_01
@@ -205,7 +205,7 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
   G_pixel_11 += (1 << (K-1)); // rounding
   G_pixel_11 = G_pixel_11 >> K;
 
-  printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
+  //printf("GG %u, %u\n", G_pixel_00, (uint8_t)G_pixel_00);
 
 
   G[row+0][col+0] = (uint8_t)G_pixel_00;
@@ -234,7 +234,7 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
   B[row+1][col+0] = (uint8_t)B_pixel_10;
   B[row+1][col+1] = (uint8_t)B_pixel_11;
 
-  printf("BB %u, %u\n", B_pixel_00, (uint8_t)B_pixel_00);
+  //printf("BB %u, %u\n", B_pixel_00, (uint8_t)B_pixel_00);
 
 } // END of CSC_YCC_to_RGB_brute_force_int()
 
@@ -363,9 +363,10 @@ void CSC_YCC_to_RGB( void) {
   uint8_t row, col; // indices for row and column
 //
 
-  for( row=IMAGE_ROW_SIZE; row>0; row-=2) {
-    for( col=IMAGE_COL_SIZE; col>0; col-=2) {
-      printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
+    upsample();
+  for( row=IMAGE_ROW_SIZE-2; row; row-=2) {
+    for( col=IMAGE_COL_SIZE-2; col; col-=2) {
+      //printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
       switch (YCC_to_RGB_ROUTINE) {
         case 0:
           break;
