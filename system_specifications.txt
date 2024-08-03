@@ -1,0 +1,35 @@
+System:
+  Host: localhost.localdomain Kernel: 4.18.16-300.fc29.armv7hl armv7l 
+  bits: 32 compiler: gcc v: 8.2.1 Console: N/A 
+  Distro: Fedora release 29 (Twenty Nine) 
+Machine:
+  Type: ARM Device System: Generic DT based system rev: N/A serial: N/A 
+CPU:
+  Topology: Quad Core model: ARMv7 v7l variant: cortex-a15 bits: 32 
+  type: MCP arch: v7l rev: 1 
+  features: Use -f option to see features bogomips: 500 
+  Speed: N/A min/max: N/A 
+  Core speeds (MHz): No speed data found for 4 cores. 
+Graphics:
+  Message: No PCI card data found. 
+  Display: server: No display server data found. Headless machine? 
+  tty: 80x24 
+  Message: Unable to show advanced data. Required tool glxinfo missing. 
+Audio:
+  Message: No PCI card data found. 
+Network:
+  Device-1: Red Hat Virtio network driver: virtio-pci v: N/A port: N/A 
+  bus ID: 01:00.0 
+  IF-ID-1: enp1s0 state: up speed: -1 duplex: unknown mac: 52:54:00:1c:32:50 
+Drives:
+  Local Storage: total: 21.80 GiB used: 1.98 GiB (9.1%) 
+  ID-1: /dev/vda model: N/A size: 21.80 GiB 
+Partition:
+  ID-1: / size: 20.91 GiB used: 1.90 GiB (9.1%) fs: ext4 dev: /dev/vda3 
+  ID-2: /boot size: 457.7 MiB used: 71.2 MiB (15.5%) fs: ext4 dev: /dev/vda2 
+Sensors:
+  Message: No sensors data was found. Is sensors configured? 
+Info:
+  Processes: 93 Uptime: 14h 21m Memory: 1.96 GiB used: 109.5 MiB (5.4%) 
+  Init: systemd runlevel: 3 Compilers: gcc: 8.2.1 Shell: bash v: 4.4.23 
+  inxi: 3.0.24 
