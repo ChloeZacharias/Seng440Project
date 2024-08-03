@@ -12,4 +12,5 @@ callgrind.out*
 LOGS/LOG*
 Backup
 
+vgcore*
 Color_Space_Conversion

@@ -6,32 +6,36 @@
 #include "../CSC_global.h"
 #include "implementations.h"
 
+#define DEBUG 0
+
 void chrominance_up_sample(void) {
-    register int max_row = IMAGE_ROW_SIZE - 1;
-    register int max_col = IMAGE_COL_SIZE - 1;
+    const size_t max_row = IMAGE_ROW_SIZE - 1;
+    const size_t max_col = IMAGE_COL_SIZE - 1;
 
-    register uint8_t Cb_value;
-    register uint8_t Cr_value;
+    uint8_t Cb_value;
+    uint8_t Cr_value;
 
-    register int row = max_row - 1;
-    register int col;
-    do {
-      col = max_col - 1;
-      do {
-        Cb_value = Cb[row>>1][col>>1];
-        Cb_temp[row][col] = Cb_value;
-        Cb_temp[row+1][col] = Cb_value;
-        Cb_temp[row][col+1] = Cb_value;
-        Cb_temp[row+1][col+1] = Cb_value;
+    // Copies the value of one pixel into it's four neighbouring pixels to the right, down, and bottom right
+    // in order to up scale, this method is faster than others, and doesn't affect image quality drastically on
+    // simpler images.
 
-        Cr_value = Cr[row>>1][col>>1];
-        Cr_temp[row][col] = Cr_value;
-        Cr_temp[row+1][col] = Cr_value;
-        Cr_temp[row][col+1] = Cr_value;
-        Cr_temp[row+1][col+1] = Cr_value;
-        col-=2;
-        // Best way to do this loop?
-      } while (col+2);
-      row-=2;
-    } while (row+2);
-}
+    for (size_t row = max_row - 1; row < max_row; row -= 2) {
+        for (size_t col = max_col - 1; col < max_col; col -= 2) {
+            Cb_value = Cb[row >> 1][col >> 1];
+            Cb_temp[row][col] = Cb_value;
+            Cb_temp[row + 1][col] = Cb_value;
+            Cb_temp[row][col + 1] = Cb_value;
+            Cb_temp[row + 1][col + 1] = Cb_value;
+
+            Cr_value = Cr[row >> 1][col >> 1];
+            Cr_temp[row][col] = Cr_value;
+            Cr_temp[row + 1][col] = Cr_value;
+            Cr_temp[row][col + 1] = Cr_value;
+            Cr_temp[row + 1][col + 1] = Cr_value;
+#if DEBUG
+            printf("Pixel (row, col)(row, col+1)\n      (row+1, col)(row+1, col+1)\nCb: %d | Cr: %d\n",
+                   row, col, row, col+1, row+1, col, row+1, col+1, Cb_value, Cr_value);
+#endif
+        }
+    }
+} // END of chrominance_up_sample()

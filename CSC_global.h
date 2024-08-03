@@ -46,8 +46,9 @@
 #endif
 
 /* prototypes of global functions */
-void CSC_RGB_to_YCC( void);
-void CSC_YCC_to_RGB( void);
+void CSC_RGB_to_YCC(void);
+
+void CSC_YCC_to_RGB(void);
 
 /* global variables */
 EXTERN uint8_t R[IMAGE_ROW_SIZE][IMAGE_COL_SIZE]; // Red array pointer
