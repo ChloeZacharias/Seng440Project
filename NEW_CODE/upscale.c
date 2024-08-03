@@ -33,7 +33,7 @@ void chrominance_up_sample(void) {
             Cr_temp[row][col + 1] = Cr_value;
             Cr_temp[row + 1][col + 1] = Cr_value;
 #if DEBUG
-            printf("Pixel (row, col)(row, col+1)\n      (row+1, col)(row+1, col+1)\nCb: %d | Cr: %d\n",
+            printf("Pixel (%d, %d)(%d, %d)\n      (%d, %d)(%d, %d)\nCb: %d | Cr: %d\n",
                    row, col, row, col+1, row+1, col, row+1, col+1, Cb_value, Cr_value);
 #endif
         }
