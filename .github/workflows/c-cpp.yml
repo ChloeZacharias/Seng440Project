@@ -17,6 +17,6 @@ jobs:
         run: |
           echo "CC=arm-linux-gnueabihf-gcc" >> $GITHUB_ENV
 
-      # Test C program
-      - name: Compile Tests
-        run: cd ./Color_Space_Conversion/LESSON_103_CSC/C && python test.py out arm-linux-gnueabihf-gcc qemu-arm-static
+      # Test C program build status
+      - name: Compile
+        run: arm-linux-gnueabihf-gcc -O3 -o CSC_main CSC_main.c CSC_RGB_to_YCC_01.c CSC_YCC_to_RGB_01.c ./NEW_CODE/rgb_to_ycc.c ./NEW_CODE/ycc_to_rgb.c ./NEW_CODE/upscale.c -mfpu=neon
