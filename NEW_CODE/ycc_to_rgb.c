@@ -65,7 +65,7 @@ void CSC_YCC_to_RGB_neon( int row, int col) {
 
     int32x4_t RR = vqaddq_s32(YY_scaled, CrCr_scaled);
 
-    int32x4_t rounding = vdupq_n_s32(1 << (K));
+    int32x4_t rounding = vdupq_n_s32(1 << K);
 
 
     RR = vqaddq_s32(RR, rounding); // rounding

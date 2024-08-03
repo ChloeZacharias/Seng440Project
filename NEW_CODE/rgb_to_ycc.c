@@ -73,7 +73,7 @@ void CSC_RGB_to_YCC_neon( int row, int col) {
 
     YY = vqaddq_u32(YY, BB_scaled);
 
-    uint32x4_t add_valueY = vdupq_n_u32((16 << (K)));
+    uint32x4_t add_valueY = vdupq_n_u32((16 << K));
     uint32x4_t scale = vdupq_n_u32((1 << (K-1)));
     YY = vqaddq_u32(YY, add_valueY);
     YY = vqaddq_u32(YY, scale); //rounding
@@ -100,7 +100,7 @@ void CSC_RGB_to_YCC_neon( int row, int col) {
     scalar_vector_C3 = vdupq_n_u32(C23);
     BB_scaled = vmulq_u32(BB, scalar_vector_C3);
 
-    uint32x4_t add_valueC = vdupq_n_u32((128 << (K)));
+    uint32x4_t add_valueC = vdupq_n_u32((128 << K));
 
 
     uint32x4_t CbCb = vqaddq_u32(add_valueC, BB_scaled);

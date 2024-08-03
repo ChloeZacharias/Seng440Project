@@ -2,8 +2,8 @@
 
 #define K 8 // bitwidth
 #define UNITY (1 << K)
-#define IMAGE_ROW_SIZE 64
-#define IMAGE_COL_SIZE 48
+#define IMAGE_ROW_SIZE 48
+#define IMAGE_COL_SIZE 64
 
 // RGB_to_YCC_ROUTINE
 //     1 for CSC_RGB_to_YCC_brute_force_float()
@@ -16,18 +16,6 @@
 //     2 for CSC_YCC_to_RGB_brute_force_int()
 //     3 for CSC_YCC_to_RGB_neon()
 #define YCC_to_RGB_ROUTINE 3
-
-// CHROMINANCE_DOWNSAMPLING_MODE = 
-//     0 for returning zero (no chrominance)
-//     1 for discarding three pixels and keeping one
-//     2 for averaging four pixels
-#define CHROMINANCE_DOWNSAMPLING_MODE 1
-
-// CHROMINANCE_UPSAMPLING_MODE = 
-//     0 for returning zero (no chrominance)
-//     1 for replicating one pixel into three
-//     2 for interpolation with two pixels
-#define CHROMINANCE_UPSAMPLING_MODE 1
 
 // RGB-to-YCC coefficients in 8-bit representation
 #define C11  66

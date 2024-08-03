@@ -28,7 +28,7 @@ int main( void) {
   // ./DATA/INPUT_WIGGLE.data
   // ./DATA/INPUT_COLORS.data
 
-  f_ID_input_RGB = fopen( "./DATA/INPUT_COLORS.data", "rb");
+  f_ID_input_RGB = fopen( "./DATA/INPUT_FLAG.data", "rb");
   if( f_ID_input_RGB == NULL) {
     printf( "Cannot open file.\n");
     return( 1);

@@ -212,12 +212,10 @@ static void CSC_YCC_to_RGB_brute_force_int( int row, int col) {
 
 // =======
 void CSC_YCC_to_RGB( void) {
-  uint8_t row, col; // indices for row and column
-//
 
   chrominance_up_sample();
-  for( row=IMAGE_ROW_SIZE-2; row; row-=2) {
-    for( col=IMAGE_COL_SIZE-2; col; col-=2) {
+  for( int row=0; row<IMAGE_ROW_SIZE; row+=2) {
+    for( int col=0; col<IMAGE_COL_SIZE; col+=2) {
       //printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
       switch (YCC_to_RGB_ROUTINE) {
         case 0:
@@ -229,7 +227,7 @@ void CSC_YCC_to_RGB( void) {
           CSC_YCC_to_RGB_brute_force_int( row, col);
           break;
         case 3:
-          CSC_YCC_to_RGB_neon( row, col);
+          CSC_YCC_to_RGB_neon(row, col);
           break;
         default:
           break;

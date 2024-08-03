@@ -201,8 +201,8 @@ static void CSC_RGB_to_YCC_brute_force_int( int row, int col) {
 void CSC_RGB_to_YCC( void) {
   int row, col; // indices for row and column
 //
-  for( row=IMAGE_ROW_SIZE-2; row; row-=2) {
-    for( col=IMAGE_COL_SIZE-2; col; col-=2) {
+  for( row=0; row<IMAGE_ROW_SIZE; row+=2) {
+    for( col=0; col<IMAGE_COL_SIZE; col+=2) {
       //printf( "\n[row,col] = [%02i,%02i]\n\n", row, col);
       switch (RGB_to_YCC_ROUTINE) {
         case 0:
