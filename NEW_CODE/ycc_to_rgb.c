@@ -55,7 +55,7 @@ void CSC_YCC_to_RGB_neon(int row, int col) {
     CrCr = vqsubq_s32(CrCr, scaled_vector_128);
 
     // Used to round up the value by 0.5 for convention when truncated
-    const int32x4_t rounding = vdupq_n_s32(1 << K);
+    const int32x4_t rounding = vdupq_n_s32(1 << K-3);
 
     // Red Conversion
     int32x4_t scalar_vector_D1 = vdupq_n_s32(D1);
