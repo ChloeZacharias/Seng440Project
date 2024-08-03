@@ -11,19 +11,21 @@ include_directories(Color_Space_Conversion/LESSON_103_CSC/C)
 
 # Add the executable
 add_executable(Seng440Project
-        Color_Space_Conversion/LESSON_103_CSC/C/CSC_main.c
-        Color_Space_Conversion/LESSON_103_CSC/C/CSC_main_02.c
-        Color_Space_Conversion/LESSON_103_CSC/C/CSC_RGB_to_YCC_01.c
-        Color_Space_Conversion/LESSON_103_CSC/C/CSC_YCC_to_RGB_01.c
-        Color_Space_Conversion/LESSON_103_CSC/C/CSC_RGB_to_YCC_01.c
-        Color_Space_Conversion/LESSON_103_CSC/C/NEW/neon_conversions.h
-        Color_Space_Conversion/LESSON_103_CSC/C/NEW/neon_conversions.c
+        CSC_main.c
+        CSC_main_02.c
+        CSC_RGB_to_YCC_01.c
+        CSC_YCC_to_RGB_01.c
+        CSC_RGB_to_YCC_01.c
+        NEW_CODE/rgb_to_ycc.c
+        NEW_CODE/ycc_to_rgb.c
+        NEW_CODE/upscale.c
 )
 
 # Specify additional source files if they are not included in the main source files
 set(SOURCE_FILES
-        Color_Space_Conversion/LESSON_103_CSC/C/arm_neon.h
-        Color_Space_Conversion/LESSON_103_CSC/C/CSC_global.h
+        NEW_CODE/arm_neon.h
+        CSC_global.h
+        NEW_CODE/implementations.h
 )
 
 # Add these source files to the target

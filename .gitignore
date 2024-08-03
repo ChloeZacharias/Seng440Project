@@ -6,5 +6,10 @@ cmake-build-debug
 
 cmake-build-arm
 
-Color_Space_Conversion/LESSON_103_CSC/C/CSC_main
-Color_Space_Conversion/LESSON_103_CSC/C/cachegrind.out*
+CSC_main
+cachegrind.out*
+callgrind.out*
+LOGS/LOG*
+Backup
+
+Color_Space_Conversion
