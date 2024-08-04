@@ -35,3 +35,4 @@ If you can get the python library called Pillow installed(`pip3 install requirem
 ```shell
 python3 image.py
 ```
+otherwise, GIMP works to view the image_output_RGB_64_48.data with a width of 64 and a height of 48
